@@ -1,7 +1,5 @@
-package uz.gita.robo_brain.presentation.ui.menu
+package uz.gita.robo_brain.presentation.ui.menu.view_model
 
-import androidx.lifecycle.ViewModel
+interface MenuViewModel {
 
-class MenuViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

@@ -1,7 +1,5 @@
-package uz.gita.robo_brain.presentation.ui.input_math.screens
+package uz.gita.robo_brain.presentation.ui.input_math.view_model
 
-import androidx.lifecycle.ViewModel
+interface InputMathViewModel {
 
-class InputMathViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

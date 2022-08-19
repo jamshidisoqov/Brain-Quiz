@@ -1,7 +1,5 @@
-package uz.gita.robo_brain.presentation.ui.grow_table.screens
+package uz.gita.robo_brain.presentation.ui.grow_table.view_model
 
-import androidx.lifecycle.ViewModel
+interface GrowTableViewModel {
 
-class GrowTableViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

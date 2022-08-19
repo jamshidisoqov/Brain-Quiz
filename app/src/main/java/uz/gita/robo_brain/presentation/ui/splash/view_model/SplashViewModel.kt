@@ -1,7 +1,9 @@
-package uz.gita.robo_brain.presentation.ui.splash
+package uz.gita.robo_brain.presentation.ui.splash.view_model
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
 
-class SplashViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+interface SplashViewModel {
+
+    val openMainScreen: LiveData<Unit>
+
 }
