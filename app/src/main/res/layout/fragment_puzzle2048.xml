@@ -17,14 +17,15 @@
 
 
         <ImageView
-            android:id="@+id/img_back"
+            android:id="@+id/image_back"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="8dp"
+            android:background="@drawable/bg_image_header_effect"
             android:padding="8dp"
             android:src="@drawable/ic_back"
-            tools:ignore="ContentDescription" />
+            android:contentDescription="@string/navigate_up" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,17 +34,20 @@
             android:fontFamily="@font/comfortaa_bold"
             android:text="@string/puzzle_2048"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:id="@+id/image_question"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/play_game"
             android:padding="8dp"
-            android:src="@drawable/ic_back"
-            tools:ignore="ContentDescription" />
+            android:src="@drawable/ic_help" />
 
     </RelativeLayout>
 
@@ -77,7 +81,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lilita_one"
+                android:fontFamily="@font/lili_one"
                 android:padding="4dp"
                 android:textSize="20sp"
                 tools:text="127" />
@@ -104,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lilita_one"
+                android:fontFamily="@font/lili_one"
                 android:padding="4dp"
                 android:textSize="20sp"
                 tools:text="03:21" />
@@ -193,14 +197,14 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@drawable/bg_header"
+        android:fontFamily="@font/comfortaa_bold"
         android:gravity="center"
         android:paddingHorizontal="24dp"
         android:text="@string/refresh"
+        android:textSize="16sp"
         app:drawableStartCompat="@drawable/ic_repeat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="16sp"
-        android:fontFamily="@font/comfortaa_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header_container"
         app:layout_constraintWidth_percent="0.5" />

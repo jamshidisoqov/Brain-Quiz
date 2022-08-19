@@ -2,6 +2,6 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/comfortaa_bold</item>
-        <item>@font/lilita_one</item>
+        <item>@font/lili_one</item>
     </array>
 </resources>
