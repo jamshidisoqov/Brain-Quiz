@@ -1,32 +1,9 @@
 package uz.gita.robo_brain.presentation.ui.sort_math.screens
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import uz.gita.robo_brain.R
 
-class SortMathFragment : Fragment() {
+class SortMathFragment : Fragment(R.layout.fragment_sort_math) {
 
-    companion object {
-        fun newInstance() = SortMathFragment()
-    }
-
-    private lateinit var viewModel: SortMathViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_sort_math, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SortMathViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

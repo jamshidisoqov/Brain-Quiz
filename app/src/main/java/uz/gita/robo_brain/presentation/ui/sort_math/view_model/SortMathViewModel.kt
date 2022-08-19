@@ -1,7 +1,5 @@
-package uz.gita.robo_brain.presentation.ui.sort_math.screens
+package uz.gita.robo_brain.presentation.ui.sort_math.view_model
 
-import androidx.lifecycle.ViewModel
+interface SortMathViewModel {
 
-class SortMathViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

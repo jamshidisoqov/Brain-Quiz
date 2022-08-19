@@ -1,7 +1,5 @@
-package uz.gita.robo_brain.presentation.ui.puzzle_15.screens
+package uz.gita.robo_brain.presentation.ui.puzzle_15.view_model
 
-import androidx.lifecycle.ViewModel
+interface NumberPuzzleViewModel {
 
-class NumberPuzzleViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

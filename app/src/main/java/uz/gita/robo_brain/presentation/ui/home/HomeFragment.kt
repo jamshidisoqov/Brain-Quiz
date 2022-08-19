@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uz.gita.robo_brain.R
+import uz.gita.robo_brain.presentation.ui.home.view_model.HomeViewModel
 
 class HomeFragment : Fragment() {
 

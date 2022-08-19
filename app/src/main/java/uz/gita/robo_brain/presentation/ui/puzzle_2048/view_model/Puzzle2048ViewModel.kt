@@ -1,7 +1,5 @@
-package uz.gita.robo_brain.presentation.ui.puzzle_2048.screens
+package uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model
 
-import androidx.lifecycle.ViewModel
+interface Puzzle2048ViewModel {
 
-class Puzzle2048ViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

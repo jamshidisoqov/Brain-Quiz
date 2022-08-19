@@ -1,7 +1,5 @@
-package uz.gita.robo_brain.presentation.ui.true_false.screens
+package uz.gita.robo_brain.presentation.ui.true_false.view_model
 
-import androidx.lifecycle.ViewModel
+interface TrueFalseViewModel {
 
-class TrueFalseViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }

@@ -1,7 +1,5 @@
-package uz.gita.robo_brain.presentation.ui.home
+package uz.gita.robo_brain.presentation.ui.home.view_model
 
-import androidx.lifecycle.ViewModel
+interface HomeViewModel {
 
-class HomeViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
 }
