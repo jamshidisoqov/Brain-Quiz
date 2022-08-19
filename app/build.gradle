@@ -83,4 +83,7 @@ dependencies {
 
     //image picker
     implementation 'com.github.dhaval2404:imagepicker:2.1'
+
+    //progress bar custom
+    implementation "com.github.skydoves:progressview:1.1.3"
 }

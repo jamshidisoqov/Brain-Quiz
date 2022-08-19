@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RoboBrain</string>
+    <string name="question_title">Question:</string>
 </resources>
