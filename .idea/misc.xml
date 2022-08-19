@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/activity_main.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_hard_math.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_quick_math.xml" value="0.2484375" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_splash.xml" value="0.2484375" />
       </map>
     </option>
   </component>
