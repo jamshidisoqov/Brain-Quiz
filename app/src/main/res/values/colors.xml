@@ -9,5 +9,8 @@
     <color name="white">#F1F0F0</color>
     <color name="bg_color">#151E27</color>
     <color name="main_color">#801B7496</color>
-    <color name="selectable_main_color">#80083040</color>
+    <color name="selectable_main_color">#80095777</color>
+    <color name="bg_stoke_color">#B7B7B7</color>
+    <color name="color_puzzle_2048_btn_default_bg">#800D3848</color>
+    <color name="icon_color">#D7D7D7</color>
 </resources>

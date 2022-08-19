@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <corners android:radius="12dp" />
-            <solid android:color="@color/main_color" />
+            <solid android:color="@color/selectable_main_color" />
         </shape>
     </item>
 
     <item android:state_pressed="false">
         <shape android:shape="rectangle">
             <corners android:radius="12dp" />
-            <solid android:color="@color/color_puzzle_2048_btn_default_bg" />
+            <solid android:color="@color/main_color" />
         </shape>
     </item>
 </selector>

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">RoboBrain</string>
     <string name="question_title">Question:</string>
+    <string name="puzzle_2048">Puzzle 2048</string>
+    <string name="moved_puzzle">Moved</string>
+    <string name="time">Time</string>
+    <string name="refresh">Refresh</string>
 </resources>
