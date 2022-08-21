@@ -1,13 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
     tools:context=".presentation.ui.sort_math.screens.SortMathFragment">
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/header_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="?actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/image_time"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_timer" />
+
+        <Chronometer
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/image_time" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/help"
+            android:padding="8dp"
+            android:src="@drawable/ic_help" />
+
+    </RelativeLayout>
+
+    <com.skydoves.progressview.ProgressView
+        android:id="@+id/progress_horizontal_sorted_math"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        app:progressView_colorBackground="@color/main_color"
+        app:progressView_colorProgress="@color/progress_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:progressView_max="100"
+        app:progressView_progress="30"
+        app:progressView_autoAnimate="true"
+        app:progressView_padding="1dp"
+        app:progressView_radius="12dp"
+        app:progressView_labelColorInner="@color/white"
+        app:progressView_labelTypeface="bold"
+        app:progressView_labelText="achieve 65%"
+        app:progressView_labelColorOuter="@color/black"
+        app:progressView_labelSpace="10dp"
+        app:progressView_progressFromPrevious="true"
+        app:layout_constraintTop_toBottomOf="@id/header_container"
+        app:layout_constraintWidth_percent="0.9"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="5"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:listitem="@layout/list_item_sorted_math"
+        app:layout_constraintTop_toBottomOf="@id/progress_horizontal_sorted_math"
+        app:layout_constraintBottom_toTopOf="@id/check_container"/>
+
+
+    <RelativeLayout
+        android:id="@+id/check_container"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/main_color"
+        android:layout_height="?actionBarSize">
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:text="@string/check"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

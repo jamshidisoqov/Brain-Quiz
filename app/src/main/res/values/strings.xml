@@ -18,4 +18,9 @@
     <string name="yes_no">True/False</string>
     <string name="math_sort">Math Sort</string>
     <string name="table_of_grow">Table Of Grow</string>
+    <string name="input_math">Input Math</string>
+    <string name="help">Help</string>
+    <string name="check">Check</string>
+    <string name="best">Best</string>
+    <string name="score">Score</string>
 </resources>

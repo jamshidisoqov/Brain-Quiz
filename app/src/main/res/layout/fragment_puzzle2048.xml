@@ -23,9 +23,9 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="8dp"
             android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/navigate_up"
             android:padding="8dp"
-            android:src="@drawable/ic_back"
-            android:contentDescription="@string/navigate_up" />
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,15 +75,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="@string/moved_puzzle"
+                android:text="@string/score"
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/tv_current_2048"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lili_one"
                 android:padding="4dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 tools:text="127" />
 
         </LinearLayout>
@@ -102,16 +103,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="4dp"
-                android:text="@string/time"
+                android:text="@string/best"
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/tv_best_puzzle2048"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lili_one"
                 android:padding="4dp"
-                android:textSize="20sp"
-                tools:text="03:21" />
+                android:textSize="18sp"
+                tools:text="2048" />
 
         </LinearLayout>
 
@@ -194,6 +196,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/refresh_container"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@drawable/bg_header"

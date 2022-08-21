@@ -13,4 +13,5 @@
     <color name="bg_stoke_color">#B7B7B7</color>
     <color name="color_puzzle_2048_btn_default_bg">#800D3848</color>
     <color name="icon_color">#D7D7D7</color>
+    <color name="progress_color">#B3239FCE</color>
 </resources>

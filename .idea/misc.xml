@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_1024.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_128.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_16.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_2048.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_256.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_32.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_4.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_512.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_64.xml" value="0.1685" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_8.xml" value="0.1685" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_btn_puzzle2048.xml" value="0.1235" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_header.xml" value="0.1235" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/bg_header_puzzle2048.xml" value="0.1235" />
@@ -27,7 +37,9 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_quick_math.xml" value="0.2484375" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_sort_math.xml" value="0.2484375" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_splash.xml" value="0.176" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_true_false.xml" value="0.2484375" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/list_item_sample.xml" value="0.2484375" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/list_item_sorted_math.xml" value="0.186328125" />
       </map>
     </option>
   </component>
