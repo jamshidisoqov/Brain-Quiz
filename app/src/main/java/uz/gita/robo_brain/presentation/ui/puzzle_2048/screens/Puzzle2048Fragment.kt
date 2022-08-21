@@ -1,6 +1,7 @@
 package uz.gita.robo_brain.presentation.ui.puzzle_2048.screens
 
 import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
+import timber.log.Timber
 import uz.gita.robo_brain.R
 import uz.gita.robo_brain.databinding.FragmentPuzzle2048Binding
 import uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.Puzzle2048ViewModel
@@ -27,7 +31,6 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.currentMatrix.observe(this, matrixObserver)
         viewModel.currentScore.observe(this, scoreObserver)
         viewModel.changePosition.observe(this, changePositionObserver)
     }
@@ -37,6 +40,16 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
 
         initView()
 
+        binding.refreshContainer.setOnClickListener {
+           startAnimZoomIn(it)
+        }
+        binding.imageBack.setOnClickListener {
+            startAnimZoomIn(it)
+        }
+        binding.imageQuestion.setOnClickListener {
+            startAnimZoomIn(it)
+        }
+
         val detector = MovementDetector(requireContext())
 
         detector.setOnMovementListener {
@@ -44,6 +57,8 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
         }
 
         binding.headerContainer.setOnTouchListener(detector)
+
+        viewModel.currentMatrix.observe(viewLifecycleOwner, matrixObserver)
 
     }
 
@@ -54,7 +69,7 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
         for (i in 0 until size) {
             val group: ViewGroup = container.getChildAt(i) as ViewGroup
             for (j in 0 until size) {
-                val view = group.getChildAt(i) as TextView
+                val view = group.getChildAt(j) as TextView
                 itemList.add(view)
             }
         }
@@ -62,8 +77,10 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
 
 
     private val matrixObserver = Observer<Array<Array<Int>>> {
+        Timber.d("$it")
+
         for (i in it.indices) {
-            for (j in it.indices) {
+            for (j in it[i].indices) {
                 val view = itemList[i * it.size + j]
                 val value = it[i][j]
                 view.apply {
@@ -79,7 +96,24 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
         binding.tvCurrent2048.text = it.toString()
     }
     private val changePositionObserver = Observer<Pair<Int, Int>> {
-        viewModel.addScore(it.second)
+        val player = MediaPlayer.create(requireContext(), R.raw.click)
+        player.start()
+        startAnimZoomIn(itemList[it.first*4+it.second])
+        viewModel.addScore(it)
+    }
+
+    private fun startAnimZoomIn(view:View){
+        YoYo.with(Techniques.ZoomIn)
+            .delay(0)
+            .duration(100)
+            .playOn(view)
+    }
+
+    private fun startAnimZoomOut(view:View){
+        YoYo.with(Techniques.ZoomOut)
+            .delay(0)
+            .duration(100)
+            .playOn(view)
     }
 
 

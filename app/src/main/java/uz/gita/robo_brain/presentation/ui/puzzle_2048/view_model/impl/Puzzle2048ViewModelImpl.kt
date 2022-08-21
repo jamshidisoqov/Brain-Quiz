@@ -7,10 +7,6 @@ import uz.gita.robo_brain.repository.models.Movement
 
 class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
 
-    init {
-        addElement()
-        addElement()
-    }
 
     override val bestScore: MutableLiveData<Int> = MutableLiveData()
 
@@ -27,6 +23,12 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
 
     private val minNumber = 2
 
+    init {
+        currentMatrix.postValue(emptyMatrix)
+        addElement()
+        addElement()
+    }
+
     override fun move(movement: Movement) {
         currentMatrix.postValue(
             when (movement) {
@@ -36,6 +38,7 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
                 Movement.DOWN -> moveDown()
             }
         )
+        addElement()
     }
 
 
@@ -43,8 +46,9 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
         currentMatrix.postValue(emptyMatrix)
     }
 
-    override fun addScore(score: Int) {
-        currentScore.postValue((currentScore.value ?: 0) + score)
+    override fun addScore(pair: Pair<Int,Int>) {
+        val matrix = currentMatrix.value?:emptyMatrix
+        currentScore.postValue((currentScore.value ?: 0) + matrix[pair.first][pair.second])
     }
 
     override fun quitGame() {
@@ -80,7 +84,6 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
 
     private fun moveRight(): Array<Array<Int>> {
         val matrix = currentMatrix.value!!
-
         for (i in matrix.indices) {
             val list = ArrayList<Int>()
             var bool = true
@@ -161,7 +164,7 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
     }
 
     private fun addElement() {
-        val matrix = currentMatrix.value!!
+        val matrix = currentMatrix.value ?: emptyMatrix
         val emptySpaces = findEmptyIndex()
         if (emptySpaces.size > 0) {
             val randomPosition = (Math.random() * emptySpaces.size).toInt()
@@ -172,7 +175,7 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
     }
 
     private fun findEmptyIndex(): ArrayList<Int> {
-        val matrix = currentMatrix.value!!
+        val matrix = currentMatrix.value ?: emptyMatrix
         val list = ArrayList<Int>()
         for (i in matrix.indices) {
             for (j in matrix[i].indices) {
@@ -184,7 +187,7 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
     }
 
     private fun isGameOver(): Boolean {
-        val matrix = currentMatrix.value!!
+        val matrix = currentMatrix.value ?: emptyMatrix
         for (i in matrix.indices) {
             for (j in 0..3) {
                 if (matrix[i][j] == 0) return true

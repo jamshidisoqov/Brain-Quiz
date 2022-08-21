@@ -6,7 +6,7 @@ import uz.gita.robo_brain.R
 object Constants {
 
     private val backgroundList = listOf(
-        R.drawable.default_background,
+        R.drawable.bg_header,
         R.drawable.default_background,
         R.drawable.bg_4,
         R.drawable.bg_8,

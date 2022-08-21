@@ -19,7 +19,7 @@ interface Puzzle2048ViewModel {
 
     fun refresh()
 
-    fun addScore(score:Int)
+    fun addScore(pair: Pair<Int,Int>)
 
     fun quitGame()
 
