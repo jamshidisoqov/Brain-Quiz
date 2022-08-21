@@ -6,7 +6,12 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#F1F0F0</color>
     <color name="bg_color">#151E27</color>
     <color name="main_color">#801B7496</color>
+    <color name="selectable_main_color">#80095777</color>
+    <color name="bg_stoke_color">#B7B7B7</color>
+    <color name="color_puzzle_2048_btn_default_bg">#800D3848</color>
+    <color name="icon_color">#D7D7D7</color>
+    <color name="progress_color">#B3239FCE</color>
 </resources>

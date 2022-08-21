@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">RoboBrain</string>
+    <string name="app_name">Brain Quiz</string>
+    <string name="question_title">Question:</string>
+    <string name="puzzle_2048">Puzzle 2048</string>
+    <string name="moved_puzzle">Moved</string>
+    <string name="time">Time</string>
+    <string name="refresh">Refresh</string>
+    <string name="play_game">How to play game</string>
+    <string name="navigate_up">Navigate Up</string>
+    <string name="settings">Settings</string>
+    <string name="share">Share</string>
+    <string name="menu">Menu</string>
+    <string name="support_us">Support us</string>
+    <string name="game_soon">New games are coming soon!</string>
+    <string name="puzzle_15">Puzzle 15</string>
+    <string name="hard_math">Hard Math</string>
+    <string name="quick_math">Quick Math</string>
+    <string name="yes_no">True/False</string>
+    <string name="math_sort">Math Sort</string>
+    <string name="table_of_grow">Table Of Grow</string>
+    <string name="input_math">Input Math</string>
+    <string name="help">Help</string>
+    <string name="check">Check</string>
+    <string name="best">Best</string>
+    <string name="score">Score</string>
 </resources>

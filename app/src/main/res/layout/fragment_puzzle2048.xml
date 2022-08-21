@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".presentation.ui.puzzle_2048.screens.Puzzle2048Fragment">
+
+    <RelativeLayout
+        android:id="@+id/action_bar_puzzle2048"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/navigate_up"
+            android:padding="8dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="@string/puzzle_2048"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:id="@+id/image_question"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/play_game"
+            android:padding="8dp"
+            android:src="@drawable/ic_help" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:baselineAligned="false"
+        android:padding="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/header_container"
+        app:layout_constraintEnd_toEndOf="@id/header_container"
+        app:layout_constraintStart_toStartOf="@id/header_container"
+        app:layout_constraintTop_toBottomOf="@id/action_bar_puzzle2048">
+
+        <LinearLayout
+            android:id="@+id/moved_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_header"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@string/score"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_current_2048"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:textSize="18sp"
+                tools:text="127" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/time_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_header"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@string/best"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_best_puzzle2048"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:textSize="18sp"
+                tools:text="2048" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/header_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/bg_header_puzzle2048"
+        android:orientation="vertical"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+
+            <TextView style="@style/CustomTextStyle" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/refresh_container"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_header"
+        android:fontFamily="@font/comfortaa_bold"
+        android:gravity="center"
+        android:paddingHorizontal="24dp"
+        android:text="@string/refresh"
+        android:textSize="16sp"
+        app:drawableStartCompat="@drawable/ic_repeat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_container"
+        app:layout_constraintWidth_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
