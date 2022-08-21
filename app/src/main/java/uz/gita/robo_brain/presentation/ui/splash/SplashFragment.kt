@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.gita.robo_brain.R
 import uz.gita.robo_brain.databinding.FragmentSplashBinding
@@ -21,7 +22,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private val openMainObserver = Observer<Unit> {
-        //find
+       findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
     }
 
 }

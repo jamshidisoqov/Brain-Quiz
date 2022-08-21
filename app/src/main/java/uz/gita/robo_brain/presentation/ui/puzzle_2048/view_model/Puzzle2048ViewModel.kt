@@ -9,6 +9,8 @@ interface Puzzle2048ViewModel {
 
     val currentScore: LiveData<Int>
 
+    val changePosition:LiveData<Pair<Int,Int>>
+
     val gameOver: LiveData<Unit>
 
     val currentMatrix: LiveData<Array<Array<Int>>>
@@ -16,6 +18,8 @@ interface Puzzle2048ViewModel {
     fun move(movement: Movement)
 
     fun refresh()
+
+    fun addScore(score:Int)
 
     fun quitGame()
 
