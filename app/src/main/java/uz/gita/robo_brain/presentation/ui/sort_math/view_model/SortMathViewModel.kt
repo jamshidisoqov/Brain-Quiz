@@ -9,6 +9,8 @@ interface SortMathViewModel {
 
     val checkLiveData: LiveData<Unit>
 
+    val finishLiveData:LiveData<Int>
+
     val gameOverLiveData: LiveData<Unit>
 
     val questionCountLiveData: LiveData<Int>
