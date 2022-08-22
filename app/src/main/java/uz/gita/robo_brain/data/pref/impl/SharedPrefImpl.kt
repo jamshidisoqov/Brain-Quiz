@@ -31,10 +31,17 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         editor.putString(MATRIX_PUZZLE_2048, gsonString).apply()
     }
 
+    override fun getCurrentScorePuzzle2048(): Int = sharedPref.getInt(CURRENT_SCORE_PUZZLE_2048, 0)
+
+    override fun setCurrentScorePuzzle2048(currentScore: Int) {
+        editor.putInt(CURRENT_SCORE_PUZZLE_2048, currentScore).apply()
+    }
+
     companion object {
         const val SHARED_NAME = "app_data"
         const val BEST_SCORE_PUZZLE_2048 = "best_score_2048"
         const val MATRIX_PUZZLE_2048 = "matrix_puzzle_2048"
+        const val CURRENT_SCORE_PUZZLE_2048 = "current_score_2048"
 
         private lateinit var instance: SharedPref
 

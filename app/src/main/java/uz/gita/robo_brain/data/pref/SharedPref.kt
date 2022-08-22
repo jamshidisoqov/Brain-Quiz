@@ -11,5 +11,9 @@ interface SharedPref {
 
     fun setMatrixPuzzle2048(matrix:Array<Array<Int>>)
 
+    fun getCurrentScorePuzzle2048():Int
+
+    fun setCurrentScorePuzzle2048(currentScore:Int)
+
 
 }

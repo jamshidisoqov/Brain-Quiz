@@ -1,9 +1,7 @@
 package uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.impl
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import timber.log.Timber
 import uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.Puzzle2048ViewModel
 import uz.gita.robo_brain.repository.models.Movement
 import uz.gita.robo_brain.repository.puzzle2048.impl.Puzzle2048RepositoryImpl
@@ -29,12 +27,14 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
 
     init {
         val matrix = repo.getMatrix()
-        if (isFirst(matrix)) {
+        if (isFirst(matrix)||!isGameOver(matrix)) {
             currentMatrix.postValue(emptyMatrix)
             addElement()
             addElement()
+            currentScore.postValue(0)
         } else {
             currentMatrix.postValue(matrix)
+            currentScore.postValue(repo.getCurrentScore())
         }
         bestScore.postValue(repo.getBestScore())
     }
@@ -57,6 +57,7 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
         addElement()
         addElement()
         currentScore.postValue(0)
+        repo.setCurrentScore(0)
         repo.setMatrix(emptyMatrix)
     }
 
@@ -73,6 +74,7 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
     override fun quitGame() {
         repo.setBestScore(bestScore.value ?: 0)
         repo.setMatrix(currentMatrix.value ?: emptyMatrix)
+        repo.setCurrentScore(currentScore.value!!)
     }
 
     private fun getEmptyArray() = Array(4) { Array(4) { 0 } }
@@ -194,9 +196,10 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
             matrix[position / matrix.size][position % matrix.size] = minNumber
             currentMatrix.postValue(matrix)
         }
-        if (!isGameOver()) {
+        if (!isGameOver(currentMatrix.value?:emptyMatrix)) {
             gameOver.postValue(Unit)
             repo.setMatrix(emptyMatrix)
+            repo.setCurrentScore(0)
         }
     }
 
@@ -212,8 +215,7 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
         return list
     }
 
-    private fun isGameOver(): Boolean {
-        val matrix = currentMatrix.value ?: emptyMatrix
+    private fun isGameOver(matrix: Array<Array<Int>>): Boolean {
         for (i in matrix.indices) {
             for (j in 0..3) {
                 if (matrix[i][j] == 0) return true

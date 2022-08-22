@@ -17,6 +17,13 @@ class Puzzle2048RepositoryImpl private constructor() : Puzzle2048Repository {
 
     override fun setBestScore(score: Int) = sharedPref.setBestScorePuzzle2048(score)
 
+    override fun setCurrentScore(currentScore: Int) {
+        sharedPref.setCurrentScorePuzzle2048(currentScore)
+    }
+
+    override fun getCurrentScore() =
+        sharedPref.getCurrentScorePuzzle2048()
+
     companion object {
         private lateinit var instance: Puzzle2048Repository
 
