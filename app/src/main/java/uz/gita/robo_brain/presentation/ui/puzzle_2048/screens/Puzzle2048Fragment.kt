@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import timber.log.Timber
+import com.tapadoo.alerter.Alerter
 import uz.gita.robo_brain.R
 import uz.gita.robo_brain.databinding.FragmentPuzzle2048Binding
 import uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.Puzzle2048ViewModel
@@ -33,6 +33,8 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
         super.onCreate(savedInstanceState)
         viewModel.currentScore.observe(this, scoreObserver)
         viewModel.changePosition.observe(this, changePositionObserver)
+        viewModel.bestScore.observe(this, bestScoreObserver)
+        viewModel.gameOver.observe(this,gameOverObserver)
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -41,7 +43,8 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
         initView()
 
         binding.refreshContainer.setOnClickListener {
-           startAnimZoomIn(it)
+            viewModel.refresh()
+            startAnimZoomIn(it)
         }
         binding.imageBack.setOnClickListener {
             startAnimZoomIn(it)
@@ -77,8 +80,6 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
 
 
     private val matrixObserver = Observer<Array<Array<Int>>> {
-        Timber.d("$it")
-
         for (i in it.indices) {
             for (j in it[i].indices) {
                 val view = itemList[i * it.size + j]
@@ -95,25 +96,35 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
     private val scoreObserver = Observer<Int> {
         binding.tvCurrent2048.text = it.toString()
     }
+
     private val changePositionObserver = Observer<Pair<Int, Int>> {
         val player = MediaPlayer.create(requireContext(), R.raw.click)
         player.start()
-        startAnimZoomIn(itemList[it.first*4+it.second])
+        startAnimZoomIn(itemList[it.first * 4 + it.second])
         viewModel.addScore(it)
     }
 
-    private fun startAnimZoomIn(view:View){
+    private fun startAnimZoomIn(view: View) {
         YoYo.with(Techniques.ZoomIn)
             .delay(0)
             .duration(100)
             .playOn(view)
     }
 
-    private fun startAnimZoomOut(view:View){
-        YoYo.with(Techniques.ZoomOut)
-            .delay(0)
-            .duration(100)
-            .playOn(view)
+    private val bestScoreObserver = Observer<Int> {
+        binding.tvBestPuzzle2048.text = it.toString()
+    }
+
+    override fun onDestroyView() {
+        viewModel.quitGame()
+        super.onDestroyView()
+    }
+
+    private val gameOverObserver = Observer<Unit> {
+        Alerter.create(requireActivity())
+            .setTitle("Game Over")
+            .setText("Game Over")
+            .show()
     }
 
 

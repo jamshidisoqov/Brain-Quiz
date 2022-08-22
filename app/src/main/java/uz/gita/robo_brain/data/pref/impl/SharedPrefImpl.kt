@@ -20,7 +20,8 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
 
     override fun getMatrixPuzzle2048(): Array<Array<Int>> {
         val type = object : TypeToken<Array<Array<Int>>>() {}.type
-        val gsonString = sharedPref.getString(MATRIX_PUZZLE_2048, "[[],[],[],[]]")
+        val gsonString =
+            sharedPref.getString(MATRIX_PUZZLE_2048, "[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]")
         return gson.fromJson(gsonString, type)
     }
 
