@@ -10,4 +10,8 @@ interface Puzzle2048Repository {
     fun getBestScore(): Int
 
     fun setBestScore(score: Int)
+
+    fun setCurrentScore(currentScore:Int)
+
+    fun getCurrentScore():Int
 }
