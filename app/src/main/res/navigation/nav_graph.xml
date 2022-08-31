@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_menuFragment_to_trueFalseFragment"
             app:destination="@id/trueFalseFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_numberPuzzleFragment"
+            app:destination="@id/numberPuzzleFragment" />
     </fragment>
     <fragment
         android:id="@+id/puzzle2048Fragment"
@@ -54,4 +57,9 @@
         android:name="uz.gita.robo_brain.presentation.ui.true_false.screens.TrueFalseFragment"
         android:label="fragment_true_false"
         tools:layout="@layout/fragment_true_false" />
+    <fragment
+        android:id="@+id/numberPuzzleFragment"
+        android:name="uz.gita.robo_brain.presentation.ui.puzzle_15.screens.NumberPuzzleFragment"
+        android:label="fragment_number_puzzle"
+        tools:layout="@layout/fragment_number_puzzle" />
 </navigation>

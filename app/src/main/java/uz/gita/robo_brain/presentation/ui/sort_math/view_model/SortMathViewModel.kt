@@ -7,8 +7,6 @@ interface SortMathViewModel {
 
     val questionLiveData: LiveData<List<SortedMath>>
 
-    val checkLiveData: LiveData<Unit>
-
     val finishLiveData:LiveData<Int>
 
     val gameOverLiveData: LiveData<Unit>

@@ -69,7 +69,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
 
 
     private val openPuzzle15Observer = Observer<Unit> {
-
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToNumberPuzzleFragment())
     }
     private val openQuickMathObserver = Observer<Unit> {
 
@@ -86,7 +86,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     }
 
     private val openSortedMathObserver = Observer<Unit> {
-
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToSortMathFragment())
     }
     private val openPuzzle2048Observer = Observer<Unit> {
         findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToPuzzle2048Fragment())

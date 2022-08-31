@@ -1,13 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.ui.puzzle_15.screens.NumberPuzzleFragment">
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/action_bar_puzzle15"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/navigate_up"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:tooltipText="@string/navigate_up"
+            tools:targetApi="o" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="@string/puzzle_15"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:id="@+id/image_question"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/play_game"
+            android:padding="8dp"
+            android:src="@drawable/ic_help" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:baselineAligned="false"
+        android:padding="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/header_container"
+        app:layout_constraintEnd_toEndOf="@id/header_container"
+        app:layout_constraintStart_toStartOf="@id/header_container"
+        app:layout_constraintTop_toBottomOf="@id/action_bar_puzzle15">
+
+        <LinearLayout
+            android:id="@+id/moved_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_header"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@string/moved"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_moved_puzzle15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:textSize="18sp"
+                tools:text="127" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/time_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_header"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@string/time"
+                android:textSize="15sp" />
+
+            <Chronometer
+                android:id="@+id/tv_time_puzzle15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:textSize="18sp"
+                tools:text="03:31" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/header_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/bg_header_puzzle2048"
+        android:orientation="vertical"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                tools:text="1"
+                style="@style/CustomButtonStyle" />
+
+            <TextView
+                tools:text="2"
+                style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+
+            <TextView style="@style/CustomButtonStyle" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_refresh"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/ic_repeat"
+        android:padding="24dp"
+        android:background="@drawable/bg_header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/image_statistics"
+        app:layout_constraintTop_toBottomOf="@+id/header_container"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/image_statistics"
+        android:layout_width="72dp"
+        app:layout_constraintStart_toEndOf="@id/image_refresh"
+        android:layout_height="72dp"
+        android:background="@drawable/bg_header"
+        android:src="@drawable/ic_chart_histogram"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="ContentDescription" />
+</androidx.constraintlayout.widget.ConstraintLayout>

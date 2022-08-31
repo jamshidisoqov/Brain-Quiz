@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import uz.gita.robo_brain.R
 import uz.gita.robo_brain.databinding.ListItemSortedMathBinding
 import uz.gita.robo_brain.repository.models.SortedMath
 
@@ -28,7 +29,7 @@ class SortedAdapter : RecyclerView.Adapter<SortedAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
-        ListItemSortedMathBinding.inflate(LayoutInflater.from(parent.context))
+        ListItemSortedMathBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.list_item_sorted_math,parent,false))
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.onBind(list[position])
@@ -36,9 +37,9 @@ class SortedAdapter : RecyclerView.Adapter<SortedAdapter.ViewHolder>() {
     override fun getItemCount(): Int = 5
 
     fun onMove(from: Int, to: Int) {
-        val oldData = list[from]
         val newList = ArrayList<SortedMath>()
-        newList.removeAt(from)
+        newList.addAll(list)
+        val oldData = newList.removeAt(from)
         newList.add(to, oldData)
         list = newList
         notifyItemMoved(from, to)

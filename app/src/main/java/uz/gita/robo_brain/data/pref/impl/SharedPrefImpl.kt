@@ -13,7 +13,6 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
 
     override fun getBestScorePuzzle2048(): Int = sharedPref.getInt(BEST_SCORE_PUZZLE_2048, 0)
 
-
     override fun setBestScorePuzzle2048(bestScore: Int) {
         editor.putInt(BEST_SCORE_PUZZLE_2048, bestScore).apply()
     }
@@ -37,11 +36,44 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         editor.putInt(CURRENT_SCORE_PUZZLE_2048, currentScore).apply()
     }
 
+    override fun getNumberListPuzzle15(): List<Int> {
+        val type = object : TypeToken<List<Int>>() {}.type
+        return gson.fromJson(
+            sharedPref.getString(
+                NUMBERS_PUZZLE_15,
+                "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"
+            ), type
+        )
+    }
+
+    override fun setNumberListPuzzle15(list: List<Int>) {
+        val type = object : TypeToken<List<Int>>() {}.type
+        val jsonString = gson.toJson(list, type)
+        editor.putString(NUMBERS_PUZZLE_15, jsonString).apply()
+    }
+
+    override fun getMovedPuzzle15(): Int = sharedPref.getInt(CURRENT_MOVED_PUZZLE_15, 0)
+
+    override fun setMovedPuzzle15(moved: Int) {
+        editor.putInt(CURRENT_MOVED_PUZZLE_15, moved).apply()
+    }
+
+    override fun getTimePuzzle15(): Int = sharedPref.getInt(CURRENT_TIME_PUZZLE_15, 0)
+
+    override fun setTimePuzzle15(time: Int) {
+        editor.putInt(CURRENT_TIME_PUZZLE_15, time).apply()
+    }
+
+
     companion object {
         const val SHARED_NAME = "app_data"
         const val BEST_SCORE_PUZZLE_2048 = "best_score_2048"
         const val MATRIX_PUZZLE_2048 = "matrix_puzzle_2048"
         const val CURRENT_SCORE_PUZZLE_2048 = "current_score_2048"
+
+        const val CURRENT_TIME_PUZZLE_15 = "current_time_puzzle_15"
+        const val CURRENT_MOVED_PUZZLE_15 = "current_moved_puzzle_15"
+        const val NUMBERS_PUZZLE_15 = "numbers_puzzle_15"
 
         private lateinit var instance: SharedPref
 
