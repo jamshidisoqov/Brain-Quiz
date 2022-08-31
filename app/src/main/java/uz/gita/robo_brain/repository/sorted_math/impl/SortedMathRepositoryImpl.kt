@@ -1,5 +1,6 @@
 package uz.gita.robo_brain.repository.sorted_math.impl
 
+import android.util.Log
 import uz.gita.robo_brain.repository.models.SortedMath
 import uz.gita.robo_brain.repository.sorted_math.SortedMathRepository
 import uz.gita.robo_brain.utils.GenerateMathQuiz.generate
@@ -16,6 +17,7 @@ class SortedMathRepositoryImpl private constructor() : SortedMathRepository {
         for (i in 0..4) {
             list[i] = list[i].copy(order = i)
         }
+
         return list
     }
 
