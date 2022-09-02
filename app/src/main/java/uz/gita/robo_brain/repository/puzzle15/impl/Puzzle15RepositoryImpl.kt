@@ -1,11 +1,13 @@
 package uz.gita.robo_brain.repository.puzzle15.impl
 
+import uz.gita.robo_brain.data.models.StatisticsByPuzzle15
 import uz.gita.robo_brain.data.pref.impl.SharedPrefImpl
 import uz.gita.robo_brain.repository.puzzle15.Puzzle15Repository
 
 class Puzzle15RepositoryImpl private constructor() : Puzzle15Repository {
 
     private val sharedPref = SharedPrefImpl.getInstance()
+
 
     override fun getNumberList(): List<Int> = sharedPref.getNumberListPuzzle15()
 
@@ -24,6 +26,16 @@ class Puzzle15RepositoryImpl private constructor() : Puzzle15Repository {
     override fun setTime(time: Int) {
         sharedPref.setTimePuzzle15(time)
     }
+
+    override fun setNewGame(newGame: Boolean) = sharedPref.setNewGame(newGame)
+
+    override fun getNewGame(): Boolean = sharedPref.getNewGame()
+
+    override fun getBestResult(): StatisticsByPuzzle15 = sharedPref.getBestResult()
+
+    override fun setBestResult(statisticsByPuzzle15: StatisticsByPuzzle15) =
+        sharedPref.setBestResult(statisticsByPuzzle15)
+
 
     companion object {
         private lateinit var instance: Puzzle15Repository

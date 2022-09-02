@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.ui.puzzle_15.screens.NumberPuzzleFragment">
 
     <RelativeLayout
@@ -142,12 +142,12 @@
             android:orientation="horizontal">
 
             <TextView
-                tools:text="1"
-                style="@style/CustomButtonStyle" />
+                style="@style/CustomButtonStyle"
+                tools:text="1" />
 
             <TextView
-                tools:text="2"
-                style="@style/CustomButtonStyle" />
+                style="@style/CustomButtonStyle"
+                tools:text="2" />
 
             <TextView style="@style/CustomButtonStyle" />
 
@@ -203,27 +203,15 @@
 
     <ImageView
         android:id="@+id/image_refresh"
-        android:layout_width="72dp"
+        android:layout_width="200dp"
         android:layout_height="72dp"
-        android:src="@drawable/ic_repeat"
-        android:padding="24dp"
         android:background="@drawable/bg_header"
+        android:padding="24dp"
+        android:src="@drawable/ic_repeat"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/image_statistics"
         app:layout_constraintTop_toBottomOf="@+id/header_container"
         tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:id="@+id/image_statistics"
-        android:layout_width="72dp"
-        app:layout_constraintStart_toEndOf="@id/image_refresh"
-        android:layout_height="72dp"
-        android:background="@drawable/bg_header"
-        android:src="@drawable/ic_chart_histogram"
-        android:padding="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_container"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="ContentDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>

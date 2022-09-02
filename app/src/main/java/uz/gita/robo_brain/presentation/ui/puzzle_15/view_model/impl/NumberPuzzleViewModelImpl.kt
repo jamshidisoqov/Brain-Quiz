@@ -1,12 +1,15 @@
 package uz.gita.robo_brain.presentation.ui.puzzle_15.view_model.impl
 
-import android.os.SystemClock
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import uz.gita.robo_brain.data.models.StatisticsByPuzzle15
 import uz.gita.robo_brain.presentation.ui.puzzle_15.view_model.NumberPuzzleViewModel
 import uz.gita.robo_brain.repository.models.Coordinate
 import uz.gita.robo_brain.repository.puzzle15.impl.Puzzle15RepositoryImpl
 import java.lang.Math.abs
+import kotlin.math.sqrt
 
 class NumberPuzzleViewModelImpl : NumberPuzzleViewModel, ViewModel() {
 
@@ -23,10 +26,14 @@ class NumberPuzzleViewModelImpl : NumberPuzzleViewModel, ViewModel() {
     override val modifiedCoordinate: MutableLiveData<Pair<Coordinate, Coordinate>> =
         MutableLiveData()
 
+    override val checkLiveData: MutableLiveData<StatisticsByPuzzle15> = MutableLiveData()
+
+    override val openResultLiveData: MutableLiveData<StatisticsByPuzzle15> = MutableLiveData()
+
     override val numbers: MutableLiveData<List<Int>> = MutableLiveData()
 
     init {
-        if (repository.getTime() == 0) {
+        if (repository.getNewGame()) {
             generateNumber()
             time.value = 0
         } else {
@@ -37,8 +44,8 @@ class NumberPuzzleViewModelImpl : NumberPuzzleViewModel, ViewModel() {
             numbers.value = list
         }
         moves.value = repository.getMove()
+        repository.setNewGame(false)
     }
-
 
     override fun move(x: Int, y: Int) {
         val empty = emptyCoordinate.value ?: Coordinate(3, 3)
@@ -70,6 +77,20 @@ class NumberPuzzleViewModelImpl : NumberPuzzleViewModel, ViewModel() {
         repository.setNumberList(numbersList)
     }
 
+    override fun check(numbersList: List<Int>, time: Int) {
+        for (i in 1..15) {
+            if (numbersList[i - 1] != i) return
+        }
+        val data = StatisticsByPuzzle15(moves.value ?: 0, time)
+        viewModelScope.launch {
+            repository.setBestResult(statisticsByPuzzle15 = data)
+            repository.setTime(0)
+            repository.setMove(0)
+            openResultLiveData.value = data
+        }
+        repository.setNewGame(true)
+    }
+
     private fun generateNumber() {
         val numberList = ArrayList<Int>()
         for (i in 1..15) {
@@ -77,7 +98,39 @@ class NumberPuzzleViewModelImpl : NumberPuzzleViewModel, ViewModel() {
         }
         numberList.shuffle()
         numberList.add(numberList.size, 0)
-        emptyCoordinate.value = Coordinate(3, 3)
-        numbers.value = numberList
+        if (isSolvable(numberList.toIntArray())) {
+            emptyCoordinate.value = Coordinate(3, 3)
+            numbers.value = numberList
+        } else generateNumber()
+    }
+
+    private fun isSolvable(puzzle: IntArray): Boolean {
+        var parity = 0
+        val gridWidth = sqrt(puzzle.size.toDouble()).toInt()
+        var row = 0
+        var blankRow = 0
+        for (i in puzzle.indices) {
+            if (i % gridWidth == 0) {
+                row++
+            }
+            if (puzzle[i] == 0) {
+                blankRow = row
+                continue
+            }
+            for (j in i + 1 until puzzle.size) {
+                if (puzzle[i] > puzzle[i] && puzzle[i] != 0) {
+                    parity++
+                }
+            }
+        }
+        return if (gridWidth % 2 == 0) {
+            if (blankRow % 2 == 0) {
+                parity % 2 == 0
+            } else {
+                parity % 2 != 0
+            }
+        } else {
+            parity % 2 == 0
+        }
     }
 }

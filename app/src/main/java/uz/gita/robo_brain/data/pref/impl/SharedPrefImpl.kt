@@ -3,6 +3,7 @@ package uz.gita.robo_brain.data.pref.impl
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import uz.gita.robo_brain.data.models.StatisticsByPuzzle15
 import uz.gita.robo_brain.data.pref.SharedPref
 
 class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
@@ -64,6 +65,28 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         editor.putInt(CURRENT_TIME_PUZZLE_15, time).apply()
     }
 
+    override fun setNewGame(newGame: Boolean) {
+        editor.putBoolean(NEW_GAME, newGame).apply()
+    }
+
+    override fun getNewGame(): Boolean = sharedPref.getBoolean(NEW_GAME, true)
+
+    override fun getBestResult(): StatisticsByPuzzle15 {
+        val gsonString = sharedPref.getString(BEST_RESULT_PUZZLE_15, "")
+        if (gsonString == "")
+            return StatisticsByPuzzle15(0, 0)
+        val type = object : TypeToken<StatisticsByPuzzle15>() {}.type
+        return gson.fromJson(gsonString, type)
+    }
+
+    override fun setBestResult(statisticsByPuzzle15: StatisticsByPuzzle15) {
+        val type = object : TypeToken<StatisticsByPuzzle15>() {}.type
+        val result = getBestResult()
+        if (statisticsByPuzzle15.moved < result.moved || result.moved == 0) {
+            val toGson = gson.toJson(statisticsByPuzzle15, type)
+            editor.putString(BEST_RESULT_PUZZLE_15, toGson).apply()
+        }
+    }
 
     companion object {
         const val SHARED_NAME = "app_data"
@@ -74,6 +97,8 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         const val CURRENT_TIME_PUZZLE_15 = "current_time_puzzle_15"
         const val CURRENT_MOVED_PUZZLE_15 = "current_moved_puzzle_15"
         const val NUMBERS_PUZZLE_15 = "numbers_puzzle_15"
+        const val NEW_GAME = "new_game"
+        const val BEST_RESULT_PUZZLE_15 = "best_result_puzzle_15"
 
         private lateinit var instance: SharedPref
 
