@@ -51,7 +51,13 @@
         android:id="@+id/sortMathFragment"
         android:name="uz.gita.robo_brain.presentation.ui.sort_math.screens.SortMathFragment"
         android:label="fragment_sort_math"
-        tools:layout="@layout/fragment_sort_math" />
+        tools:layout="@layout/fragment_sort_math" >
+        <action
+            android:id="@+id/action_sortMathFragment_to_sortedMathResultFragment"
+            app:destination="@id/sortedMathResultFragment"
+            app:popUpTo="@id/sortMathFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/trueFalseFragment"
         android:name="uz.gita.robo_brain.presentation.ui.true_false.screens.TrueFalseFragment"
@@ -81,5 +87,20 @@
             app:destination="@id/numberPuzzleFragment"
             app:popUpTo="@id/puzzle15ResultFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/sortedMathResultFragment"
+        android:name="uz.gita.robo_brain.presentation.ui.sort_math.screens.result.SortedMathResultFragment"
+        android:label="fragment_sorted_math_result"
+        tools:layout="@layout/fragment_sorted_math_result" >
+        <action
+            android:id="@+id/action_sortedMathResultFragment_to_sortMathFragment"
+            app:destination="@id/sortMathFragment"
+            app:popUpTo="@id/sortedMathResultFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="level"
+            app:argType="integer"
+            android:defaultValue="1" />
     </fragment>
 </navigation>

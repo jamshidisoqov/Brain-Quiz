@@ -81,7 +81,7 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/tv_moved_puzzle15"
+                android:id="@+id/tvMovedPuzzle15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lili_one"

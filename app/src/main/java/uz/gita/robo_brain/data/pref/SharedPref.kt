@@ -32,14 +32,18 @@ interface SharedPref {
 
     fun setTimePuzzle15(time: Int)
 
-    fun setNewGame(newGame:Boolean)
+    fun setNewGame(newGame: Boolean)
 
-    fun getNewGame():Boolean
+    fun getNewGame(): Boolean
 
     fun getBestResult(): StatisticsByPuzzle15
 
     fun setBestResult(statisticsByPuzzle15: StatisticsByPuzzle15)
 
+    //sorted math
+    fun getBestResultSortedMath(): Int
+
+    fun setBestResultSortedMath(result: Int)
 
 
 }

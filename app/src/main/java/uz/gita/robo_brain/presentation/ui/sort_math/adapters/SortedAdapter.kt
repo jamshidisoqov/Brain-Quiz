@@ -34,7 +34,7 @@ class SortedAdapter : RecyclerView.Adapter<SortedAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.onBind(list[position])
 
-    override fun getItemCount(): Int = 5
+    override fun getItemCount(): Int = list.size
 
     fun onMove(from: Int, to: Int) {
         val newList = ArrayList<SortedMath>()

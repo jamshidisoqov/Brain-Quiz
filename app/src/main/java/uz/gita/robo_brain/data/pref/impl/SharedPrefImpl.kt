@@ -88,6 +88,11 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         }
     }
 
+    override fun getBestResultSortedMath(): Int = sharedPref.getInt(BEST_RESULT_SORTED_MATH, 1)
+
+    override fun setBestResultSortedMath(result: Int) =
+        editor.putInt(BEST_RESULT_SORTED_MATH, result).apply()
+
     companion object {
         const val SHARED_NAME = "app_data"
         const val BEST_SCORE_PUZZLE_2048 = "best_score_2048"
@@ -99,6 +104,8 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         const val NUMBERS_PUZZLE_15 = "numbers_puzzle_15"
         const val NEW_GAME = "new_game"
         const val BEST_RESULT_PUZZLE_15 = "best_result_puzzle_15"
+
+        const val BEST_RESULT_SORTED_MATH = "best_result_sorted_math"
 
         private lateinit var instance: SharedPref
 

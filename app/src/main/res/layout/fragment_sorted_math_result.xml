@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context=".presentation.ui.puzzle_15.screens.result.Puzzle15ResultFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.ui.sort_math.screens.result.SortedMathResultFragment">
+
 
     <RelativeLayout
         android:id="@+id/action_bar_puzzle15"
@@ -47,7 +48,6 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/winner"
-        app:layout_constraintBottom_toTopOf="@id/tv_your_result"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,178 +55,94 @@
         app:layout_constraintWidth_percent="0.4"
         tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/tv_your_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/lili_one"
-        android:text="@string/your_result"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/image_winner"
-        app:layout_constraintStart_toStartOf="@id/image_winner"
-        app:layout_constraintTop_toBottomOf="@id/image_winner" />
 
     <LinearLayout
         android:id="@+id/header_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="@drawable/bg_header"
         android:baselineAligned="false"
         android:padding="2dp"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintBottom_toTopOf="@+id/image_refresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_your_result"
-        app:layout_constraintWidth_percent="0.9">
+        app:layout_constraintTop_toBottomOf="@id/image_winner"
+        app:layout_constraintWidth_percent="0.92">
 
         <LinearLayout
-            android:id="@+id/moved_container"
+            android:id="@+id/current_result"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
             android:layout_weight="1"
+            android:background="@drawable/bg_header"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lili_one"
                 android:padding="4dp"
-                android:text="@string/moved"
+                android:text="@string/result"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tvMovedPuzzle15"
+                android:id="@+id/tv_current"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lili_one"
                 android:padding="4dp"
                 android:textSize="24sp"
-                tools:text="127" />
+                tools:text="Level:10" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/time_container"
+            android:id="@+id/best_result"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
             android:layout_weight="1"
+            android:background="@drawable/bg_header"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingVertical="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lili_one"
                 android:padding="4dp"
-                android:text="@string/time"
+                android:text="@string/best"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tv_time_puzzle15"
+                android:id="@+id/tv_best"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lili_one"
                 android:padding="4dp"
                 android:textSize="24sp"
-                tools:text="03:31" />
+                tools:text="Level:106" />
 
         </LinearLayout>
 
     </LinearLayout>
-
 
     <TextView
-        android:id="@+id/tv_best_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/lili_one"
-        android:text="@string/best"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/image_winner"
-        app:layout_constraintStart_toStartOf="@id/image_winner"
-        app:layout_constraintTop_toBottomOf="@id/header_container" />
-
-
-    <LinearLayout
-        android:id="@+id/header_container_best"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/bg_header"
-        android:baselineAligned="false"
-        android:padding="2dp"
+        android:text="@string/good_job"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/image_refresh"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_best_result"
-        app:layout_constraintWidth_percent="0.9">
+        app:layout_constraintTop_toBottomOf="@+id/header_container" />
 
-        <LinearLayout
-            android:id="@+id/moved_container_best"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            android:layout_weight="1"
-
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lili_one"
-                android:padding="4dp"
-                android:text="@string/moved"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_moved_puzzle15_best"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lili_one"
-                android:padding="4dp"
-                android:textSize="24sp"
-                tools:text="127" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/time_container_best"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="8dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lili_one"
-                android:padding="4dp"
-                android:text="@string/time"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tv_time_puzzle15_best"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lili_one"
-                android:padding="4dp"
-                android:textSize="24sp"
-                tools:text="03:31" />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
     <ImageView
         android:id="@+id/image_refresh"
@@ -240,8 +156,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

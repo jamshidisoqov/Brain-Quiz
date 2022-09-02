@@ -11,6 +11,8 @@ interface SortMathViewModel {
 
     val gameOverLiveData: LiveData<Unit>
 
+    val timer:LiveData<Int>
+
     val questionCountLiveData: LiveData<Int>
 
     fun check(list: List<SortedMath>)

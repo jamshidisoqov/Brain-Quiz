@@ -2,6 +2,9 @@ package uz.gita.robo_brain.presentation.ui.sort_math.view_model.impl
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import uz.gita.robo_brain.presentation.ui.sort_math.view_model.SortMathViewModel
 import uz.gita.robo_brain.repository.models.SortedMath
 import uz.gita.robo_brain.repository.sorted_math.impl.SortedMathRepositoryImpl
@@ -19,10 +22,22 @@ class SortMathViewModelImpl : SortMathViewModel, ViewModel() {
 
     override val gameOverLiveData: MutableLiveData<Unit> = MutableLiveData()
 
+    var time = 30
+
+    override val timer: MutableLiveData<Int> = MutableLiveData(time)
+
 
     init {
         questionCountLiveData.value = 0
         nextQuestion()
+        viewModelScope.launch {
+            while (time > 0) {
+                delay(1000)
+                time--
+                timer.value = time
+            }
+            finishLiveData.value = questionCountLiveData.value
+        }
     }
 
 
@@ -30,10 +45,14 @@ class SortMathViewModelImpl : SortMathViewModel, ViewModel() {
         val currentQuestion = questionLiveData.value!!
         for (i in list.indices) {
             if (list[i].order != currentQuestion[i].order) {
-                finishLiveData.postValue(questionCountLiveData.value)
+                val result = questionCountLiveData.value?:1
+                finishLiveData.postValue(result)
+                time = 1
+                repository.setBestResult(result)
                 return
             }
         }
+        time = 30
         nextQuestion()
     }
 
