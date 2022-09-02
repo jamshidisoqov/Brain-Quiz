@@ -61,5 +61,25 @@
         android:id="@+id/numberPuzzleFragment"
         android:name="uz.gita.robo_brain.presentation.ui.puzzle_15.screens.NumberPuzzleFragment"
         android:label="fragment_number_puzzle"
-        tools:layout="@layout/fragment_number_puzzle" />
+        tools:layout="@layout/fragment_number_puzzle" >
+        <action
+            android:id="@+id/action_numberPuzzleFragment_to_puzzle15ResultFragment"
+            app:destination="@id/puzzle15ResultFragment"
+            app:popUpTo="@id/numberPuzzleFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/puzzle15ResultFragment"
+        android:name="uz.gita.robo_brain.presentation.ui.puzzle_15.screens.result.Puzzle15ResultFragment"
+        android:label="fragment_puzzle15_result"
+        tools:layout="@layout/fragment_puzzle15_result" >
+        <argument
+            android:name="statistics"
+            app:argType="uz.gita.robo_brain.data.models.StatisticsByPuzzle15" />
+        <action
+            android:id="@+id/action_puzzle15ResultFragment_to_numberPuzzleFragment"
+            app:destination="@id/numberPuzzleFragment"
+            app:popUpTo="@id/puzzle15ResultFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".presentation.ui.puzzle_15.screens.result.Puzzle15ResultFragment">
+
+    <RelativeLayout
+        android:id="@+id/action_bar_puzzle15"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/navigate_up"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:tooltipText="@string/navigate_up"
+            tools:targetApi="o" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="@string/result"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/image_winner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/winner"
+        app:layout_constraintBottom_toTopOf="@id/tv_your_result"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/action_bar_puzzle15"
+        app:layout_constraintWidth_percent="0.4"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_your_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lili_one"
+        android:text="@string/your_result"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/image_winner"
+        app:layout_constraintStart_toStartOf="@id/image_winner"
+        app:layout_constraintTop_toBottomOf="@id/image_winner" />
+
+    <LinearLayout
+        android:id="@+id/header_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_header"
+        android:baselineAligned="false"
+        android:padding="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_your_result"
+        app:layout_constraintWidth_percent="0.9">
+
+        <LinearLayout
+            android:id="@+id/moved_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:text="@string/moved"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_moved_puzzle15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:textSize="24sp"
+                tools:text="127" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/time_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:text="@string/time"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_time_puzzle15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:textSize="24sp"
+                tools:text="03:31" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_best_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lili_one"
+        android:text="@string/best"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/image_winner"
+        app:layout_constraintStart_toStartOf="@id/image_winner"
+        app:layout_constraintTop_toBottomOf="@id/header_container" />
+
+
+    <LinearLayout
+        android:id="@+id/header_container_best"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_header"
+        android:baselineAligned="false"
+        android:padding="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_best_result"
+        app:layout_constraintWidth_percent="0.9">
+
+        <LinearLayout
+            android:id="@+id/moved_container_best"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:text="@string/moved"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_moved_puzzle15_best"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:textSize="24sp"
+                tools:text="127" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/time_container_best"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:text="@string/time"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_time_puzzle15_best"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lili_one"
+                android:padding="4dp"
+                android:textSize="24sp"
+                tools:text="03:31" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_refresh"
+        android:layout_width="200dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_header"
+        android:padding="24dp"
+        android:src="@drawable/ic_repeat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

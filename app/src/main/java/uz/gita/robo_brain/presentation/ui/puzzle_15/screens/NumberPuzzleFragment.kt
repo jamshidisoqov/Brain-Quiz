@@ -1,5 +1,6 @@
 package uz.gita.robo_brain.presentation.ui.puzzle_15.screens
 
+import android.annotation.SuppressLint
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
@@ -12,10 +13,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.gita.robo_brain.R
+import uz.gita.robo_brain.data.models.StatisticsByPuzzle15
 import uz.gita.robo_brain.databinding.FragmentNumberPuzzleBinding
 import uz.gita.robo_brain.presentation.ui.puzzle_15.view_model.NumberPuzzleViewModel
 import uz.gita.robo_brain.presentation.ui.puzzle_15.view_model.impl.NumberPuzzleViewModelImpl
 import uz.gita.robo_brain.repository.models.Coordinate
+import uz.gita.robo_brain.utils.getTime
 import uz.gita.robo_brain.utils.invisible
 import uz.gita.robo_brain.utils.visible
 import uz.gita.robo_brain.utils.zoomAnim
@@ -26,6 +29,8 @@ class NumberPuzzleFragment : Fragment(R.layout.fragment_number_puzzle) {
 
     private val viewBinding: FragmentNumberPuzzleBinding by viewBinding()
 
+    private var checked = false
+
     private val buttonsList = ArrayList<TextView>(16)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +38,7 @@ class NumberPuzzleFragment : Fragment(R.layout.fragment_number_puzzle) {
         viewModel.numbers.observe(this, numbersObserver)
         viewModel.modifiedCoordinate.observe(this, modifiedCoordinateObserver)
         viewModel.backLiveData.observe(this, backObserver)
-
+        viewModel.openResultLiveData.observe(this, openResultObserver)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,7 +81,7 @@ class NumberPuzzleFragment : Fragment(R.layout.fragment_number_puzzle) {
         }
     }
 
-    private val modifiedCoordinateObserver = Observer<Pair<Coordinate, Coordinate>> {
+    private val modifiedCoordinateObserver = Observer<Pair<Coordinate, Coordinate>> { it ->
         val player = MediaPlayer.create(requireContext(), R.raw.click)
         if (!player.isPlaying)
             player.start()
@@ -91,6 +96,15 @@ class NumberPuzzleFragment : Fragment(R.layout.fragment_number_puzzle) {
             text = "0"
             invisible()
         }
+        if (new == 15) {
+            viewModel.check(
+                buttonsList.map { th ->
+                    th.text.toString().toInt()
+                },
+                viewBinding.tvTimePuzzle15.getTime()
+            )
+        }
+
     }
 
     private val timeObserver = Observer<Int> {
@@ -111,12 +125,24 @@ class NumberPuzzleFragment : Fragment(R.layout.fragment_number_puzzle) {
         findNavController().navigateUp()
     }
 
+    @SuppressLint("SetTextI18n")
+    private val openResultObserver = Observer<StatisticsByPuzzle15> {
+        checked = true
+        findNavController().navigate(
+            NumberPuzzleFragmentDirections.actionNumberPuzzleFragmentToPuzzle15ResultFragment(
+                it
+            )
+        )
+    }
+
     override fun onPause() {
         super.onPause()
-        viewModel.saveData(
-            buttonsList.map {
-                it.text.toString().toInt()
-            }, (SystemClock.elapsedRealtime() - viewBinding.tvTimePuzzle15.base).toInt()
-        )
+        if (!checked) {
+            viewModel.saveData(
+                buttonsList.map {
+                    it.text.toString().toInt()
+                }, (SystemClock.elapsedRealtime() - viewBinding.tvTimePuzzle15.base).toInt()
+            )
+        }
     }
 }

@@ -1,5 +1,7 @@
 package uz.gita.robo_brain.data.pref
 
+import uz.gita.robo_brain.data.models.StatisticsByPuzzle15
+
 // Created by Jamshid Isoqov an 8/19/2022
 interface SharedPref {
 
@@ -29,6 +31,15 @@ interface SharedPref {
     fun getTimePuzzle15(): Int
 
     fun setTimePuzzle15(time: Int)
+
+    fun setNewGame(newGame:Boolean)
+
+    fun getNewGame():Boolean
+
+    fun getBestResult(): StatisticsByPuzzle15
+
+    fun setBestResult(statisticsByPuzzle15: StatisticsByPuzzle15)
+
 
 
 }

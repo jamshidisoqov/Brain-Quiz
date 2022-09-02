@@ -24,4 +24,6 @@
     <string name="best">Best</string>
     <string name="score">Score</string>
     <string name="moved">Moved</string>
+    <string name="result">Result</string>
+    <string name="your_result">Your result</string>
 </resources>
