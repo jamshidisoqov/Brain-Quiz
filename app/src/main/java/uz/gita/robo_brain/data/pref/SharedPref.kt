@@ -61,5 +61,10 @@ interface SharedPref {
 
     fun getBestResultTableOfGrow():Int
 
+    //input math
+    fun setBestResultInputMath(result: Int)
+
+    fun getBestResultInputMath():Int
+
 
 }

@@ -6,4 +6,6 @@ data class MathQuizData(
     val answer: Int
 ) {
     fun toSortedMath() = SortedMath(question,answer)
+
+    fun toInputMath() = InputMathData("$question=",answer)
 }

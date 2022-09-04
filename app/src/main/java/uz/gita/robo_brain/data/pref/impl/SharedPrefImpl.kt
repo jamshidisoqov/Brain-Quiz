@@ -112,6 +112,12 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
     override fun getBestResultTableOfGrow(): Int =
         sharedPref.getInt(BEST_RESULT_TABLE_GROW, 1)
 
+    override fun setBestResultInputMath(result: Int) =
+        editor.putInt(BEST_RESULT_INPUT_MATH, result).apply()
+
+    override fun getBestResultInputMath(): Int =
+        sharedPref.getInt(BEST_RESULT_INPUT_MATH, 1)
+
     companion object {
         const val SHARED_NAME = "app_data"
         const val BEST_SCORE_PUZZLE_2048 = "best_score_2048"
@@ -131,6 +137,8 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         const val BEST_RESULT_QUICK_MATH = "best_result_quick_math"
 
         const val BEST_RESULT_TABLE_GROW = "best_result_table_grow"
+
+        const val BEST_RESULT_INPUT_MATH = "best_result_input_math"
 
         private lateinit var instance: SharedPref
 

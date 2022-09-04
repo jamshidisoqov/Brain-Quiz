@@ -78,7 +78,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToTrueFalseFragment())
     }
     private val openInputObserver = Observer<Unit> {
-
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToInputMathFragment())
     }
 
     private val openTableOfGrowObserver = Observer<Unit> {
