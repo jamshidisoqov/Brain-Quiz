@@ -36,6 +36,8 @@ class Puzzle15RepositoryImpl private constructor() : Puzzle15Repository {
     override fun setBestResult(statisticsByPuzzle15: StatisticsByPuzzle15) =
         sharedPref.setBestResult(statisticsByPuzzle15)
 
+    override fun getMusic(): Boolean = sharedPref.getMusic()
+
 
     companion object {
         private lateinit var instance: Puzzle15Repository

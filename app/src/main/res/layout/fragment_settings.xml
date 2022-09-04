@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context=".presentation.ui.settings.SettingsFragment">
+
+    <RelativeLayout
+        android:id="@+id/action_bar_puzzle15"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        tools:ignore="UselessParent">
+
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_image_header_effect"
+            android:contentDescription="@string/navigate_up"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:tooltipText="@string/navigate_up"
+            tools:targetApi="o" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="@string/settings"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_settings"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/image_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:padding="16dp"
+            tools:ignore="UselessLeaf,UselessParent">
+
+            <TextView
+                android:id="@+id/tv_change_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_image"
+                android:textColor="@color/settings_title_color"
+                android:textSize="16sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_change_image"
+                android:layout_marginTop="12dp"
+                android:text="@string/choose_image_text" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/your_image"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/user"
+                app:shapeAppearanceOverlay="@style/ShapeImageView" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/name_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:padding="16dp"
+            tools:ignore="UselessLeaf,UselessParent">
+
+            <TextView
+                android:id="@+id/tv_change_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_name"
+                android:textColor="@color/settings_title_color"
+                android:textSize="16sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_change_name"
+                android:layout_marginTop="12dp"
+                android:text="@string/your_name" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_settings"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/music_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:padding="16dp"
+            tools:ignore="UselessLeaf,UselessParent">
+
+            <TextView
+                android:id="@+id/tv_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/music"
+                android:textColor="@color/settings_title_color"
+                android:textSize="16sp"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_music"
+                android:layout_marginTop="12dp"
+                android:text="@string/paying_music" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switch_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:checked="false"
+                android:src="@drawable/user"
+                app:shapeAppearanceOverlay="@style/ShapeImageView" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

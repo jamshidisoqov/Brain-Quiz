@@ -9,12 +9,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import com.tapadoo.alerter.Alerter
 import uz.gita.robo_brain.R
 import uz.gita.robo_brain.databinding.FragmentPuzzle2048Binding
+import uz.gita.robo_brain.presentation.ui.puzzle_2048.screens.dialog.GameOverDialog
+import uz.gita.robo_brain.presentation.ui.puzzle_2048.screens.dialog.WinGameDialog
 import uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.Puzzle2048ViewModel
 import uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.impl.Puzzle2048ViewModelImpl
 import uz.gita.robo_brain.utils.Constants
@@ -26,6 +28,8 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
 
     private val itemList = ArrayList<TextView>()
 
+    private lateinit var player: MediaPlayer
+
     private val viewModel: Puzzle2048ViewModel by viewModels<Puzzle2048ViewModelImpl>()
 
 
@@ -34,13 +38,18 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
         viewModel.currentScore.observe(this, scoreObserver)
         viewModel.changePosition.observe(this, changePositionObserver)
         viewModel.bestScore.observe(this, bestScoreObserver)
-        viewModel.gameOver.observe(this,gameOverObserver)
+        viewModel.gameOver.observe(this, gameOverObserver)
+        viewModel.winnerLiveData.observe(this,winnerObserver)
     }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         initView()
+
+        player = MediaPlayer.create(requireContext(), R.raw.sound)
+
+        viewModel.musicLiveData.observe(viewLifecycleOwner,musicObserver)
 
         binding.refreshContainer.setOnClickListener {
             viewModel.refresh()
@@ -49,10 +58,6 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
         binding.imageBack.setOnClickListener {
             startAnimZoomIn(it)
         }
-        binding.imageQuestion.setOnClickListener {
-            startAnimZoomIn(it)
-        }
-
         val detector = MovementDetector(requireContext())
 
         detector.setOnMovementListener {
@@ -117,15 +122,48 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
 
     override fun onDestroyView() {
         viewModel.quitGame()
+        if (player.isPlaying) {
+            player.stop()
+        }
         super.onDestroyView()
     }
 
     private val gameOverObserver = Observer<Unit> {
-        Alerter.create(requireActivity())
-            .setTitle("Game Over")
-            .setText("Game Over")
-            .show()
+        val dialog = GameOverDialog(requireContext())
+        dialog.setFinishListener {
+            dialog.dismiss()
+            viewModel.refresh()
+            findNavController().navigateUp()
+        }
+        dialog.setRetryListener {
+            dialog.dismiss()
+            viewModel.refresh()
+        }
+        dialog.show()
     }
+
+    private val winnerObserver = Observer<Unit> {
+        val dialog = WinGameDialog(requireContext())
+        dialog.setDismissListener {
+            dialog.dismiss()
+            viewModel.refresh()
+            findNavController().navigateUp()
+
+        }
+        dialog.setRetryClickListener {
+            dialog.dismiss()
+            viewModel.refresh()
+        }
+        dialog.show()
+    }
+
+    private val musicObserver = Observer<Boolean> {
+        if (it) {
+            player.start()
+            player.isLooping = true
+        }
+    }
+
 
 
 }

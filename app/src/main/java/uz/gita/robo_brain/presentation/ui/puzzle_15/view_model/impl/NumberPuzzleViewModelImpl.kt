@@ -30,6 +30,8 @@ class NumberPuzzleViewModelImpl : NumberPuzzleViewModel, ViewModel() {
 
     override val openResultLiveData: MutableLiveData<StatisticsByPuzzle15> = MutableLiveData()
 
+    override val musicLiveData: MutableLiveData<Boolean> = MutableLiveData(repository.getMusic())
+
     override val numbers: MutableLiveData<List<Int>> = MutableLiveData()
 
     init {

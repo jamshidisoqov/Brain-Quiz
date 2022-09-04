@@ -1,11 +1,14 @@
 package uz.gita.robo_brain.repository.sorted_math.impl
 
-import android.util.Log
+import uz.gita.robo_brain.data.pref.impl.SharedPrefImpl
 import uz.gita.robo_brain.repository.models.SortedMath
 import uz.gita.robo_brain.repository.sorted_math.SortedMathRepository
 import uz.gita.robo_brain.utils.GenerateMathQuiz.generate
 
 class SortedMathRepositoryImpl private constructor() : SortedMathRepository {
+
+    private val sharedPref = SharedPrefImpl.getInstance()
+
     override fun getQuestions(question: Int): List<SortedMath> {
         val list = ArrayList<SortedMath>()
         for (i in 0..4) {
@@ -20,6 +23,16 @@ class SortedMathRepositoryImpl private constructor() : SortedMathRepository {
 
         return list
     }
+
+    override fun setBestResult(result: Int) {
+        if (getBestResult() < result) {
+            sharedPref.setBestResultSortedMath(result)
+        }
+    }
+
+    override fun getBestResult(): Int = sharedPref.getBestResultSortedMath()
+
+    override fun getMusic(): Boolean  = sharedPref.getMusic()
 
     companion object {
         private lateinit var instance: SortedMathRepository

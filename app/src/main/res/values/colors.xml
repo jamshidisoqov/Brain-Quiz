@@ -14,4 +14,5 @@
     <color name="color_puzzle_2048_btn_default_bg">#800D3848</color>
     <color name="icon_color">#D7D7D7</color>
     <color name="progress_color">#B3239FCE</color>
+    <color name="settings_title_color">#1B97C6</color>
 </resources>

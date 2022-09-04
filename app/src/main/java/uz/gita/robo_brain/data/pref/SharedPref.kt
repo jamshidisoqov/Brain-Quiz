@@ -32,14 +32,51 @@ interface SharedPref {
 
     fun setTimePuzzle15(time: Int)
 
-    fun setNewGame(newGame:Boolean)
+    fun setNewGame(newGame: Boolean)
 
-    fun getNewGame():Boolean
+    fun getNewGame(): Boolean
 
     fun getBestResult(): StatisticsByPuzzle15
 
     fun setBestResult(statisticsByPuzzle15: StatisticsByPuzzle15)
 
+    //sorted math
+    fun getBestResultSortedMath(): Int
 
+    fun setBestResultSortedMath(result: Int)
+
+    //true false
+    fun getBestResultTrueFalse(): Int
+
+    fun setBestResultTrueFalse(result: Int)
+
+    //quick math
+    fun getBestResultQuickMath(): Int
+
+    fun setBestResultQuickMath(result: Int)
+
+    //table of grow
+
+    fun setBestResultTableOfGrow(result: Int)
+
+    fun getBestResultTableOfGrow():Int
+
+    //input math
+    fun setBestResultInputMath(result: Int)
+
+    fun getBestResultInputMath():Int
+
+    //settings
+    fun getName(): String
+
+    fun setName(name: String)
+
+    fun getImageUri():String
+
+    fun setImageUri(uri:String)
+
+    fun getMusic():Boolean
+
+    fun setMusic(music:Boolean)
 
 }

@@ -25,4 +25,6 @@ interface Puzzle15Repository {
 
     fun setBestResult(statisticsByPuzzle15: StatisticsByPuzzle15)
 
+    fun getMusic():Boolean
+
 }

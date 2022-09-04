@@ -12,6 +12,9 @@ interface HomeViewModel {
 
     val openSettingLiveData: LiveData<Unit>
 
+
+    val openAboutLiveData:LiveData<Unit>
+
     fun openMain()
 
     fun openPlayMarket()
@@ -19,5 +22,7 @@ interface HomeViewModel {
     fun openShareApp()
 
     fun openSettings()
+
+    fun openAbout()
 
 }

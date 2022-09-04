@@ -1,5 +1,6 @@
 package uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.impl
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.Puzzle2048ViewModel
@@ -20,14 +21,18 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
 
     override val gameOver: MutableLiveData<Unit> = MutableLiveData()
 
+    override val winnerLiveData: MutableLiveData<Unit> = MutableLiveData()
+
     override val currentMatrix: MutableLiveData<Array<Array<Int>>> =
         MutableLiveData(emptyMatrix)
+
+    override val musicLiveData: MutableLiveData<Boolean> = MutableLiveData(repo.getMusic())
 
     private val minNumber = 2
 
     init {
         val matrix = repo.getMatrix()
-        if (isFirst(matrix)||!isGameOver(matrix)) {
+        if (isFirst(matrix) || !isGameOver(matrix)) {
             currentMatrix.postValue(emptyMatrix)
             addElement()
             addElement()
@@ -40,14 +45,23 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
     }
 
     override fun move(movement: Movement) {
+        val matrix = when (movement) {
+            Movement.LEFT -> moveLeft()
+            Movement.RIGHT -> moveRight()
+            Movement.UP -> moveUp()
+            Movement.DOWN -> moveDown()
+        }
         currentMatrix.postValue(
-            when (movement) {
-                Movement.LEFT -> moveLeft()
-                Movement.RIGHT -> moveRight()
-                Movement.UP -> moveUp()
-                Movement.DOWN -> moveDown()
-            }
+            matrix
         )
+        for (i in matrix.indices) {
+            for (j in matrix[i].indices) {
+                if (matrix[i][j] == 2048) {
+                    winnerLiveData.value = Unit
+                    return
+                }
+            }
+        }
         addElement()
     }
 
@@ -196,7 +210,7 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
             matrix[position / matrix.size][position % matrix.size] = minNumber
             currentMatrix.postValue(matrix)
         }
-        if (!isGameOver(currentMatrix.value?:emptyMatrix)) {
+        if (!isGameOver(currentMatrix.value ?: emptyMatrix)) {
             gameOver.postValue(Unit)
             repo.setMatrix(emptyMatrix)
             repo.setCurrentScore(0)

@@ -23,23 +23,22 @@
             android:padding="8dp"
             android:src="@drawable/ic_timer" />
 
-        <Chronometer
-            android:id="@+id/chr_time"
+        <TextView
+            android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/image_time" />
+            android:layout_toEndOf="@id/image_time"
+            android:textSize="18sp"
+            tools:text="10" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_image_header_effect"
-            android:contentDescription="@string/help"
-            android:padding="8dp"
-            android:src="@drawable/ic_help" />
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            tools:text="Question:10" />
 
     </RelativeLayout>
 
@@ -58,11 +57,11 @@
         app:progressView_labelColorInner="@color/white"
         app:progressView_labelColorOuter="@color/black"
         app:progressView_labelSpace="10dp"
-        app:progressView_labelText="achieve 65%"
+        app:progressView_labelText="Time"
         app:progressView_labelTypeface="bold"
         app:progressView_max="100"
         app:progressView_padding="1dp"
-        app:progressView_progress="30"
+        app:progressView_progress="100"
         app:progressView_progressFromPrevious="true"
         app:progressView_radius="12dp" />
 

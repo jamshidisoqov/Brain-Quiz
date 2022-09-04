@@ -9,9 +9,11 @@ interface SortMathViewModel {
 
     val finishLiveData:LiveData<Int>
 
-    val gameOverLiveData: LiveData<Unit>
+    val timer:LiveData<Int>
 
     val questionCountLiveData: LiveData<Int>
+
+    val musicLiveData:LiveData<Boolean>
 
     fun check(list: List<SortedMath>)
 

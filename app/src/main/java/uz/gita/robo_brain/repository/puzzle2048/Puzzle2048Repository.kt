@@ -14,4 +14,6 @@ interface Puzzle2048Repository {
     fun setCurrentScore(currentScore:Int)
 
     fun getCurrentScore():Int
+
+    fun getMusic():Boolean
 }
