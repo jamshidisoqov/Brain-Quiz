@@ -26,6 +26,8 @@ class GrowTableViewModelImpl : GrowTableViewModel, ViewModel() {
 
     override val finishLiveData: MutableLiveData<Int> = MutableLiveData()
 
+    override val musicLiveData: MutableLiveData<Boolean> = MutableLiveData(repository.getMusic())
+
     private var time = 0
 
     init {

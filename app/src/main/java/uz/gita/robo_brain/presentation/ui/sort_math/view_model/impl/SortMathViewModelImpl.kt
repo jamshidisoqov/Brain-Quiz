@@ -11,10 +11,12 @@ import uz.gita.robo_brain.repository.sorted_math.impl.SortedMathRepositoryImpl
 
 class SortMathViewModelImpl : SortMathViewModel, ViewModel() {
 
+    private val repository = SortedMathRepositoryImpl.getInstance()
 
     override val questionCountLiveData: MutableLiveData<Int> = MutableLiveData(0)
 
-    private val repository = SortedMathRepositoryImpl.getInstance()
+    override val musicLiveData: MutableLiveData<Boolean> = MutableLiveData(repository.getMusic())
+
 
     override val questionLiveData: MutableLiveData<List<SortedMath>> = MutableLiveData()
 
@@ -43,7 +45,7 @@ class SortMathViewModelImpl : SortMathViewModel, ViewModel() {
         val currentQuestion = questionLiveData.value!!
         for (i in list.indices) {
             if (list[i].order != currentQuestion[i].order) {
-                val result = questionCountLiveData.value?:1
+                val result = questionCountLiveData.value ?: 1
                 finishLiveData.postValue(result)
                 time = 1
                 repository.setBestResult(result)

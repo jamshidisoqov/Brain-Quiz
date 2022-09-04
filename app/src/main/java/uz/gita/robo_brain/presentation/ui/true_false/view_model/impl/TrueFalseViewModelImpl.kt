@@ -1,5 +1,6 @@
 package uz.gita.robo_brain.presentation.ui.true_false.view_model.impl
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,6 +21,7 @@ class TrueFalseViewModelImpl : TrueFalseViewModel, ViewModel() {
     override val timer: MutableLiveData<Int> = MutableLiveData()
 
     override val questionCountLiveData: MutableLiveData<Int> = MutableLiveData(1)
+    override val musicLiveData:MutableLiveData<Boolean> = MutableLiveData(repository.getMusic())
 
     private var time = 10
 

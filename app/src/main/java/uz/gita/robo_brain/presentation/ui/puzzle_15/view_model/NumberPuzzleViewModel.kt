@@ -22,6 +22,8 @@ interface NumberPuzzleViewModel {
 
     val openResultLiveData: LiveData<StatisticsByPuzzle15>
 
+    val musicLiveData:LiveData<Boolean>
+
     fun move(x: Int, y: Int)
 
     fun newGame()

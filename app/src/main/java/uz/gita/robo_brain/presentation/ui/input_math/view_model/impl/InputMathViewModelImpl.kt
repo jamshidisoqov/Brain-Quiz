@@ -59,10 +59,9 @@ class InputMathViewModelImpl : InputMathViewModel, ViewModel() {
         minusObserver.value = -1
 
         if (ans.length < 5) {
-            if (answer==-2){
+            if (answer == -2) {
                 answerLiveData.value = "-"
-            }
-            else if (answer != -1) {
+            } else if (answer != -1) {
                 answerLiveData.value = (ans + answer).toInt().toString()
             } else {
                 if (ans != "0") {
@@ -80,6 +79,8 @@ class InputMathViewModelImpl : InputMathViewModel, ViewModel() {
             }
         }
     }
+
+    override val musicLiveData: MutableLiveData<Boolean> = MutableLiveData(repository.getMusic())
 
     private fun nextQuestion() {
         time = 20

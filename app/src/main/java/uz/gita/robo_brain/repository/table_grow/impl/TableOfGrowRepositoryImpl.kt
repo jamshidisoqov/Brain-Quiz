@@ -43,6 +43,8 @@ class TableOfGrowRepositoryImpl private constructor() : TableOfGrowRepository {
 
     override fun getBestResult(): Int = sharedPref.getBestResultTableOfGrow()
 
+    override fun getMusic(): Boolean  = sharedPref.getMusic()
+
     companion object {
         private lateinit var instance: TableOfGrowRepository
 

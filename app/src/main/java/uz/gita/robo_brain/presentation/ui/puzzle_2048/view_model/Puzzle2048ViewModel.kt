@@ -17,6 +17,8 @@ interface Puzzle2048ViewModel {
 
     val currentMatrix: LiveData<Array<Array<Int>>>
 
+    val musicLiveData:LiveData<Boolean>
+
     fun move(movement: Movement)
 
     fun refresh()

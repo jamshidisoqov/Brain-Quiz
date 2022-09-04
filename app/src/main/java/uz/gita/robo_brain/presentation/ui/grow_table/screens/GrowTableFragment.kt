@@ -27,6 +27,8 @@ class GrowTableFragment : Fragment(R.layout.fragment_grow_table) {
 
     private val viewBinding: FragmentGrowTableBinding by viewBinding()
 
+    private lateinit var player: MediaPlayer
+
     private val numberList = ArrayList<TextView>(16)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,9 +42,11 @@ class GrowTableFragment : Fragment(R.layout.fragment_grow_table) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initView()
+        player = MediaPlayer.create(requireContext(), R.raw.sound)
         viewModel.numberListLiveData.observe(viewLifecycleOwner, numberListObserver)
         viewModel.numberLiveData.observe(viewLifecycleOwner, numberObserver)
         viewModel.timerLiveData.observe(viewLifecycleOwner, timerObserver)
+        viewModel.musicLiveData.observe(viewLifecycleOwner,musicObserver)
         viewBinding.imageBack.setOnClickListener {
             viewModel.back()
         }
@@ -125,6 +129,20 @@ class GrowTableFragment : Fragment(R.layout.fragment_grow_table) {
 
     private val backObserver = Observer<Unit> {
         findNavController().navigateUp()
+    }
+
+    private val musicObserver = Observer<Boolean> {
+        if (it) {
+            player.start()
+            player.isLooping = true
+        }
+    }
+
+    override fun onDestroyView() {
+        if (player.isPlaying) {
+            player.stop()
+        }
+        super.onDestroyView()
     }
 
 }

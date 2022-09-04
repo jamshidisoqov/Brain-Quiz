@@ -1,7 +1,9 @@
 package uz.gita.robo_brain.presentation.ui.menu.view_model.impl
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import uz.gita.robo_brain.data.pref.impl.SharedPrefImpl
 import uz.gita.robo_brain.presentation.ui.menu.view_model.MenuViewModel
 
 class MenuViewModelImpl : MenuViewModel,ViewModel() {
@@ -23,6 +25,11 @@ class MenuViewModelImpl : MenuViewModel,ViewModel() {
     override val openHardMathLiveData: MutableLiveData<Unit> = MutableLiveData()
 
     override val openSupportLiveData: MutableLiveData<Unit> = MutableLiveData()
+
+    override val openHelpLiveData: MutableLiveData<Unit> = MutableLiveData()
+
+    override val imageLiveData: MutableLiveData<String> =
+        MutableLiveData(SharedPrefImpl.getInstance().getImageUri())
 
     override fun openPuzzle15() {
         openPuzzle15LiveData.postValue(Unit)
@@ -58,5 +65,9 @@ class MenuViewModelImpl : MenuViewModel,ViewModel() {
 
     override fun openSupport() {
         openSupportLiveData.postValue(Unit)
+    }
+
+    override fun openHelp() {
+       openHelpLiveData.value = Unit
     }
 }

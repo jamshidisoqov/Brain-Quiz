@@ -21,6 +21,8 @@ class QuickMathViewModelImpl : QuickMathViewModel, ViewModel() {
 
     override val questionCountLiveData: MutableLiveData<Int> = MutableLiveData(1)
 
+    override val musicLiveData: MutableLiveData<Boolean> = MutableLiveData(repository.getMusic())
+
     var time = 10
 
     init {

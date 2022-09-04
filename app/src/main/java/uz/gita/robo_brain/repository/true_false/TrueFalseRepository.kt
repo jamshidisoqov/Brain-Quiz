@@ -11,5 +11,6 @@ interface TrueFalseRepository {
 
     fun getBestResult(): Int
 
+    fun getMusic():Boolean
 
 }

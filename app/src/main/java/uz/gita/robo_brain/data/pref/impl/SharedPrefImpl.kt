@@ -118,6 +118,25 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
     override fun getBestResultInputMath(): Int =
         sharedPref.getInt(BEST_RESULT_INPUT_MATH, 1)
 
+    override fun getName(): String = sharedPref.getString(NAME, "Youre Name").toString()
+
+    override fun setName(name: String) {
+        editor.putString(NAME, name)
+        editor.apply()
+    }
+
+    override fun getImageUri(): String = sharedPref.getString(IMAGE, "image").toString()
+
+    override fun setImageUri(uri: String) {
+        editor.putString(IMAGE, uri)
+        editor.apply()
+    }
+
+    override fun getMusic(): Boolean = sharedPref.getBoolean(MUSIC, true)
+
+    override fun setMusic(music: Boolean) = editor.putBoolean(MUSIC, music).apply()
+
+
     companion object {
         const val SHARED_NAME = "app_data"
         const val BEST_SCORE_PUZZLE_2048 = "best_score_2048"
@@ -139,6 +158,10 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         const val BEST_RESULT_TABLE_GROW = "best_result_table_grow"
 
         const val BEST_RESULT_INPUT_MATH = "best_result_input_math"
+
+        const val NAME = "name"
+        const val IMAGE = "image"
+        const val MUSIC = "music"
 
         private lateinit var instance: SharedPref
 

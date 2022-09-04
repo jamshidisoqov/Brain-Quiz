@@ -22,6 +22,10 @@ interface MenuViewModel {
 
     val openSupportLiveData:LiveData<Unit>
 
+    val openHelpLiveData:LiveData<Unit>
+
+    val imageLiveData:LiveData<String>
+
 
     fun openPuzzle15()
 
@@ -40,5 +44,7 @@ interface MenuViewModel {
     fun openHardMath()
 
     fun openSupport()
+
+    fun openHelp()
 
 }

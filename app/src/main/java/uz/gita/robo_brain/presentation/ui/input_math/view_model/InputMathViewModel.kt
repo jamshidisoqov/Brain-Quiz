@@ -21,4 +21,6 @@ interface InputMathViewModel {
 
     fun clickAnswer(answer: Int)
 
+    val musicLiveData:LiveData<Boolean>
+
 }

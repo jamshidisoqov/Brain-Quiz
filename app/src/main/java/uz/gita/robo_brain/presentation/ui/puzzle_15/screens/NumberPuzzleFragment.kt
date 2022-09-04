@@ -31,6 +31,8 @@ class NumberPuzzleFragment : Fragment(R.layout.fragment_number_puzzle) {
 
     private var checked = false
 
+    private lateinit var player: MediaPlayer
+
     private val buttonsList = ArrayList<TextView>(16)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,9 +44,11 @@ class NumberPuzzleFragment : Fragment(R.layout.fragment_number_puzzle) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        player = MediaPlayer.create(requireContext(), R.raw.sound)
         loadButtons()
         viewModel.time.observe(viewLifecycleOwner, timeObserver)
         viewModel.moves.observe(viewLifecycleOwner, movesObserver)
+        viewModel.musicLiveData.observe(viewLifecycleOwner, musicObserver)
         viewBinding.imageRefresh.setOnClickListener {
             viewModel.newGame()
         }
@@ -144,5 +148,19 @@ class NumberPuzzleFragment : Fragment(R.layout.fragment_number_puzzle) {
                 }, (SystemClock.elapsedRealtime() - viewBinding.tvTimePuzzle15.base).toInt()
             )
         }
+    }
+
+    private val musicObserver = Observer<Boolean> {
+        if (it) {
+            player.start()
+            player.isLooping = true
+        }
+    }
+
+    override fun onDestroyView() {
+        if (player.isPlaying) {
+            player.stop()
+        }
+        super.onDestroyView()
     }
 }

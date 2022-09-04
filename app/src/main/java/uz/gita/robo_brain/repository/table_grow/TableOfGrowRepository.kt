@@ -11,4 +11,6 @@ interface TableOfGrowRepository {
 
     fun getBestResult(): Int
 
+    fun getMusic():Boolean
+
 }

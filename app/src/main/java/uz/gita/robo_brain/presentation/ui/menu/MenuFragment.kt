@@ -1,5 +1,6 @@
 package uz.gita.robo_brain.presentation.ui.menu
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -9,8 +10,10 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import uz.gita.robo_brain.R
 import uz.gita.robo_brain.databinding.FragmentMenuBinding
+import uz.gita.robo_brain.presentation.ui.menu.dialogs.BottomMenuDialog
 import uz.gita.robo_brain.presentation.ui.menu.view_model.MenuViewModel
 import uz.gita.robo_brain.presentation.ui.menu.view_model.impl.MenuViewModelImpl
+import uz.gita.robo_brain.utils.setLocalImage
 
 class MenuFragment : Fragment(R.layout.fragment_menu) {
 
@@ -30,6 +33,8 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         viewModel.openPuzzle2048LiveData.observe(this, openPuzzle2048Observer)
         viewModel.openHardMathLiveData.observe(this, openHardMathObserver)
         viewModel.openSupportLiveData.observe(this, openSupportObserver)
+        viewModel.openHelpLiveData.observe(this, helpObserver)
+
     }
 
 
@@ -63,7 +68,12 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             imageFlash.setOnClickListener {
                 viewModel.openSupport()
             }
+            imageQuestion.setOnClickListener {
+                viewModel.openHelp()
+            }
         }
+
+        viewModel.imageLiveData.observe(viewLifecycleOwner, imageObserver)
 
     }
 
@@ -95,7 +105,19 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToQuickMathFragment())
     }
     private val openSupportObserver = Observer<Unit> {
+        val dialog = BottomMenuDialog()
+        dialog.show(childFragmentManager, "dialog")
+    }
+    private val helpObserver = Observer<Unit> {
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHelpFragment())
+    }
 
+    private val imageObserver = Observer<String> {
+        if (it == "image") {
+            binding.imageUser.setImageResource(R.drawable.user)
+        } else {
+            binding.imageUser.setLocalImage(Uri.parse(it), true)
+        }
     }
 
 }

@@ -1,5 +1,7 @@
 package uz.gita.robo_brain.presentation.ui.true_false.screens
 
+import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -19,6 +21,8 @@ class TrueFalseFragment : Fragment(R.layout.fragment_true_false) {
 
     private val viewBinding: FragmentTrueFalseBinding by viewBinding()
 
+    private lateinit var player: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.questionCountLiveData.observe(this, questionCountObserver)
@@ -28,12 +32,14 @@ class TrueFalseFragment : Fragment(R.layout.fragment_true_false) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.questionLiveData.observe(viewLifecycleOwner, questionObserver)
+        player = MediaPlayer.create(requireContext(), R.raw.sound)
         viewBinding.tvNoBtn.setOnClickListener {
             viewModel.check(false)
         }
         viewBinding.tvYesBtn.setOnClickListener {
             viewModel.check(true)
         }
+        viewModel.musicLiveData.observe(viewLifecycleOwner,musicObserver)
     }
 
     private val questionObserver = Observer<TrueFalseData> {
@@ -53,8 +59,23 @@ class TrueFalseFragment : Fragment(R.layout.fragment_true_false) {
         viewBinding.tvTimer.text = it.toString()
     }
 
+    @SuppressLint("SetTextI18n")
     private val questionCountObserver = Observer<Int> {
         viewBinding.tvQuestionCount.text = "Question:$it"
+    }
+
+    private val musicObserver = Observer<Boolean> {
+        if (it) {
+            player.start()
+            player.isLooping = true
+        }
+    }
+
+    override fun onDestroyView() {
+        if (player.isPlaying) {
+            player.stop()
+        }
+        super.onDestroyView()
     }
 
 }

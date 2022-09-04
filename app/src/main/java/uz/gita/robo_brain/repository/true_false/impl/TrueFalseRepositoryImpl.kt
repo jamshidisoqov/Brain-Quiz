@@ -28,6 +28,8 @@ class TrueFalseRepositoryImpl private constructor() : TrueFalseRepository {
 
     override fun getBestResult(): Int = sharedPref.getBestResultTrueFalse()
 
+    override fun getMusic(): Boolean = sharedPref.getMusic()
+
     companion object {
         private lateinit var instance: TrueFalseRepository
 

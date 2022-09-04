@@ -20,6 +20,7 @@ class InputMathRepositoryImpl private constructor() : InputMathRepository {
     }
 
     override fun getBestResult(): Int = sharedPref.getBestResultInputMath()
+    override fun getMusic()  = sharedPref.getMusic()
 
     companion object {
         private lateinit var instance: InputMathRepository

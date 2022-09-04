@@ -24,6 +24,8 @@ class Puzzle2048RepositoryImpl private constructor() : Puzzle2048Repository {
     override fun getCurrentScore() =
         sharedPref.getCurrentScorePuzzle2048()
 
+    override fun getMusic()  = sharedPref.getMusic()
+
     companion object {
         private lateinit var instance: Puzzle2048Repository
 

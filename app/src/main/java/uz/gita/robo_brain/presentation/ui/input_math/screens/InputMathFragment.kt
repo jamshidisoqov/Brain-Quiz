@@ -1,6 +1,7 @@
 package uz.gita.robo_brain.presentation.ui.input_math.screens
 
 import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,8 @@ class InputMathFragment : Fragment(R.layout.fragment_input_math) {
 
     private val binding: FragmentInputMathBinding by viewBinding()
 
+    private lateinit var player: MediaPlayer
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,7 @@ class InputMathFragment : Fragment(R.layout.fragment_input_math) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        player = MediaPlayer.create(requireContext(), R.raw.sound)
         initView()
         binding.btnCheck.setOnClickListener {
             val text = binding.tvAnswer.text.toString()
@@ -47,6 +51,7 @@ class InputMathFragment : Fragment(R.layout.fragment_input_math) {
         viewModel.timerLiveData.observe(viewLifecycleOwner, timerObserver)
         viewModel.questionCountLiveData.observe(viewLifecycleOwner, questionCountObserver)
         viewModel.minusObserver.observe(viewLifecycleOwner, minusObserver)
+        viewModel.musicLiveData.observe(viewLifecycleOwner,musicObserver)
     }
 
     private fun initView() {
@@ -77,6 +82,7 @@ class InputMathFragment : Fragment(R.layout.fragment_input_math) {
             )
         )
     }
+
     private val timerObserver = Observer<Int> {
         binding.progressHorizontalSortedMath.progress = it * 5f
         binding.tvTime.text = it.getTimeFormat()
@@ -102,4 +108,17 @@ class InputMathFragment : Fragment(R.layout.fragment_input_math) {
         }
     }
 
+    private val musicObserver = Observer<Boolean> {
+        if (it) {
+            player.start()
+            player.isLooping = true
+        }
+    }
+
+    override fun onDestroyView() {
+        if (player.isPlaying) {
+            player.stop()
+        }
+        super.onDestroyView()
+    }
 }

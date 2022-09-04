@@ -1,5 +1,7 @@
 package uz.gita.robo_brain.presentation.ui.quick_math.screens
 
+import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -22,6 +24,8 @@ class QuickMathFragment : Fragment(R.layout.fragment_quick_math) {
 
     private lateinit var variants: List<TextView>
 
+    private lateinit var player: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.finishLiveData.observe(this, finishGameObserver)
@@ -34,6 +38,8 @@ class QuickMathFragment : Fragment(R.layout.fragment_quick_math) {
             variants = listOf(this.tvVariant1, this.tvVariant2, this.tvVariant3, this.tvVariant4)
         }
 
+        player = MediaPlayer.create(requireContext(), R.raw.sound)
+
         for (i in variants.indices) {
             val variant = variants[i]
             variant.tag = i
@@ -42,6 +48,7 @@ class QuickMathFragment : Fragment(R.layout.fragment_quick_math) {
             }
         }
         viewModel.questionLiveData.observe(viewLifecycleOwner, questionObserver)
+        viewModel.musicLiveData.observe(viewLifecycleOwner,musicObserver)
     }
 
 
@@ -63,8 +70,23 @@ class QuickMathFragment : Fragment(R.layout.fragment_quick_math) {
         viewBinding.tvTimer.text = it.toString()
     }
 
+    @SuppressLint("SetTextI18n")
     private val questionCountObserver = Observer<Int> {
         viewBinding.tvQuestionCount.text = "Question:$it"
+    }
+
+    private val musicObserver = Observer<Boolean> {
+        if (it) {
+            player.start()
+            player.isLooping = true
+        }
+    }
+
+    override fun onDestroyView() {
+        if (player.isPlaying) {
+            player.stop()
+        }
+        super.onDestroyView()
     }
 
 

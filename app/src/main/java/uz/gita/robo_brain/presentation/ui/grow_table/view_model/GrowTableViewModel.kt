@@ -18,6 +18,8 @@ interface GrowTableViewModel {
 
     val finishLiveData: LiveData<Int>
 
+    val musicLiveData:LiveData<Boolean>
+
     fun check(number: Int)
 
     fun newGame()

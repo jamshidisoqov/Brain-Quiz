@@ -66,5 +66,17 @@ interface SharedPref {
 
     fun getBestResultInputMath():Int
 
+    //settings
+    fun getName(): String
+
+    fun setName(name: String)
+
+    fun getImageUri():String
+
+    fun setImageUri(uri:String)
+
+    fun getMusic():Boolean
+
+    fun setMusic(music:Boolean)
 
 }

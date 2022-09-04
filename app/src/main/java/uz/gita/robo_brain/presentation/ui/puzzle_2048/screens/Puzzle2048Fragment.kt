@@ -28,6 +28,8 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
 
     private val itemList = ArrayList<TextView>()
 
+    private lateinit var player: MediaPlayer
+
     private val viewModel: Puzzle2048ViewModel by viewModels<Puzzle2048ViewModelImpl>()
 
 
@@ -44,6 +46,10 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         initView()
+
+        player = MediaPlayer.create(requireContext(), R.raw.sound)
+
+        viewModel.musicLiveData.observe(viewLifecycleOwner,musicObserver)
 
         binding.refreshContainer.setOnClickListener {
             viewModel.refresh()
@@ -116,6 +122,9 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
 
     override fun onDestroyView() {
         viewModel.quitGame()
+        if (player.isPlaying) {
+            player.stop()
+        }
         super.onDestroyView()
     }
 
@@ -147,6 +156,14 @@ class Puzzle2048Fragment : Fragment(R.layout.fragment_puzzle2048) {
         }
         dialog.show()
     }
+
+    private val musicObserver = Observer<Boolean> {
+        if (it) {
+            player.start()
+            player.isLooping = true
+        }
+    }
+
 
 
 }

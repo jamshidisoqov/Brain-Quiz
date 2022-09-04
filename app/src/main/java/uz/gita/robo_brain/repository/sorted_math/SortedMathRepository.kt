@@ -11,4 +11,6 @@ interface SortedMathRepository {
 
     fun getBestResult(): Int
 
+    fun getMusic():Boolean
+
 }

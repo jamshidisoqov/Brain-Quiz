@@ -13,6 +13,8 @@ interface QuickMathViewModel {
 
     val questionCountLiveData: LiveData<Int>
 
+    val musicLiveData:LiveData<Boolean>
+
     fun check(variant: Int)
 
     fun nextQuestion()

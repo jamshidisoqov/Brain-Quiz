@@ -41,6 +41,8 @@ class QuickMathRepositoryImpl private constructor() : QuickMathRepository {
 
     override fun getBestResult(): Int = sharedPref.getBestResultQuickMath()
 
+    override fun getMusic(): Boolean  = sharedPref.getMusic()
+
     companion object {
         private lateinit var instance: QuickMathRepository
 

@@ -32,6 +32,8 @@ class SortedMathRepositoryImpl private constructor() : SortedMathRepository {
 
     override fun getBestResult(): Int = sharedPref.getBestResultSortedMath()
 
+    override fun getMusic(): Boolean  = sharedPref.getMusic()
+
     companion object {
         private lateinit var instance: SortedMathRepository
 

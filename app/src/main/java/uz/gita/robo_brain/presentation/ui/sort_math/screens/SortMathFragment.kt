@@ -1,6 +1,7 @@
 package uz.gita.robo_brain.presentation.ui.sort_math.screens
 
 import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -29,6 +30,8 @@ class SortMathFragment : Fragment(R.layout.fragment_sort_math) {
         SortedAdapter()
     }
 
+    private lateinit var player: MediaPlayer
+
     private val binding: FragmentSortMathBinding by viewBinding()
 
 
@@ -43,7 +46,7 @@ class SortMathFragment : Fragment(R.layout.fragment_sort_math) {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
+        player = MediaPlayer.create(requireContext(), R.raw.sound)
         binding.listSortedMath.adapter = adapter
 
         binding.checkContainer.setOnClickListener {
@@ -71,6 +74,7 @@ class SortMathFragment : Fragment(R.layout.fragment_sort_math) {
             }
         val helper = ItemTouchHelper(touchHelper)
         helper.attachToRecyclerView(binding.listSortedMath)
+        viewModel.musicLiveData.observe(viewLifecycleOwner,musicObserver)
 
     }
 
@@ -91,6 +95,20 @@ class SortMathFragment : Fragment(R.layout.fragment_sort_math) {
     private val timerObserver = Observer<Int> {
         binding.progressHorizontalSortedMath.progress = it * 3.33f
         binding.tvTime.text = it.toString()
+    }
+
+    private val musicObserver = Observer<Boolean> {
+        if (it) {
+            player.start()
+            player.isLooping = true
+        }
+    }
+
+    override fun onDestroyView() {
+        if (player.isPlaying) {
+            player.stop()
+        }
+        super.onDestroyView()
     }
 
 

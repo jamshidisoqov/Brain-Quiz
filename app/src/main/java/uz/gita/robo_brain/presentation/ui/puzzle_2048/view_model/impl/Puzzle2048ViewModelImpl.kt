@@ -1,5 +1,6 @@
 package uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.impl
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import uz.gita.robo_brain.presentation.ui.puzzle_2048.view_model.Puzzle2048ViewModel
@@ -24,6 +25,8 @@ class Puzzle2048ViewModelImpl : Puzzle2048ViewModel, ViewModel() {
 
     override val currentMatrix: MutableLiveData<Array<Array<Int>>> =
         MutableLiveData(emptyMatrix)
+
+    override val musicLiveData: MutableLiveData<Boolean> = MutableLiveData(repo.getMusic())
 
     private val minNumber = 2
 

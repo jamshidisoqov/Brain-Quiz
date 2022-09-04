@@ -13,6 +13,8 @@ interface SortMathViewModel {
 
     val questionCountLiveData: LiveData<Int>
 
+    val musicLiveData:LiveData<Boolean>
+
     fun check(list: List<SortedMath>)
 
     fun nextQuestion()

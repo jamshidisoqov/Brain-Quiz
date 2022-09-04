@@ -13,6 +13,8 @@ interface TrueFalseViewModel {
 
     val questionCountLiveData: LiveData<Int>
 
+    val musicLiveData:LiveData<Boolean>
+
     fun check(boolean: Boolean)
 
     fun nextQuestion()
