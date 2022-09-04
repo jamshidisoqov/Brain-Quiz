@@ -20,8 +20,6 @@ class SortMathViewModelImpl : SortMathViewModel, ViewModel() {
 
     override val finishLiveData: MutableLiveData<Int> = MutableLiveData()
 
-    override val gameOverLiveData: MutableLiveData<Unit> = MutableLiveData()
-
     var time = 30
 
     override val timer: MutableLiveData<Int> = MutableLiveData(time)

@@ -88,10 +88,29 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         }
     }
 
-    override fun getBestResultSortedMath(): Int = sharedPref.getInt(BEST_RESULT_SORTED_MATH, 1)
+    override fun getBestResultSortedMath(): Int =
+        sharedPref.getInt(BEST_RESULT_SORTED_MATH, 1)
 
     override fun setBestResultSortedMath(result: Int) =
         editor.putInt(BEST_RESULT_SORTED_MATH, result).apply()
+
+    override fun getBestResultTrueFalse(): Int =
+        sharedPref.getInt(BEST_RESULT_TRUE_FALSE, 1)
+
+    override fun setBestResultTrueFalse(result: Int) =
+        editor.putInt(BEST_RESULT_TRUE_FALSE, result).apply()
+
+    override fun getBestResultQuickMath(): Int =
+        sharedPref.getInt(BEST_RESULT_QUICK_MATH, 1)
+
+    override fun setBestResultQuickMath(result: Int) =
+        editor.putInt(BEST_RESULT_QUICK_MATH, result).apply()
+
+    override fun setBestResultTableOfGrow(result: Int) =
+        editor.putInt(BEST_RESULT_TABLE_GROW, result).apply()
+
+    override fun getBestResultTableOfGrow(): Int =
+        sharedPref.getInt(BEST_RESULT_TABLE_GROW, 1)
 
     companion object {
         const val SHARED_NAME = "app_data"
@@ -106,6 +125,12 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
         const val BEST_RESULT_PUZZLE_15 = "best_result_puzzle_15"
 
         const val BEST_RESULT_SORTED_MATH = "best_result_sorted_math"
+
+        const val BEST_RESULT_TRUE_FALSE = "best_result_true_false"
+
+        const val BEST_RESULT_QUICK_MATH = "best_result_quick_math"
+
+        const val BEST_RESULT_TABLE_GROW = "best_result_table_grow"
 
         private lateinit var instance: SharedPref
 

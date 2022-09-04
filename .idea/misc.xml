@@ -31,7 +31,9 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/ic_sort.xml" value="0.1235" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/drawable/ic_timer.xml" value="0.1235" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/activity_main.xml" value="0.6" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_grow_table.xml" value="0.2328125" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/dialog_game_over.xml" value="0.2484375" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/dialog_winner.xml" value="0.2484375" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_grow_table.xml" value="0.176" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_hard_math.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_home.xml" value="0.176" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_input_math.xml" value="0.2484375" />
@@ -39,12 +41,14 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_number_puzzle.xml" value="0.176" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_puzzle15_result.xml" value="0.176" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_puzzle2048.xml" value="0.2" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_quick_math.xml" value="0.2484375" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_quick_math.xml" value="0.10400000000000001" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_quick_math_result.xml" value="0.2484375" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_sort_math.xml" value="0.2484375" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_sorted_math_result.xml" value="0.2" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_splash.xml" value="0.176" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_statistics.xml" value="0.2484375" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_true_false.xml" value="0.2484375" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/fragment_true_false_result.xml" value="0.2484375" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/list_item_sample.xml" value="0.2484375" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/RoboBrain/app/src/main/res/layout/list_item_sorted_math.xml" value="0.186328125" />
       </map>
@@ -55,5 +59,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.10400000000000001" />
+      </ProjectState>
+    </option>
   </component>
 </project>

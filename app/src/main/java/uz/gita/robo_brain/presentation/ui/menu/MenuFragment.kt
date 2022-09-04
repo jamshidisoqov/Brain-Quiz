@@ -72,17 +72,17 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToNumberPuzzleFragment())
     }
     private val openQuickMathObserver = Observer<Unit> {
-
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToQuickMathFragment())
     }
     private val openTrueFalseObserver = Observer<Unit> {
-
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToTrueFalseFragment())
     }
     private val openInputObserver = Observer<Unit> {
 
     }
 
     private val openTableOfGrowObserver = Observer<Unit> {
-
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToGrowTableFragment())
     }
 
     private val openSortedMathObserver = Observer<Unit> {
@@ -92,7 +92,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToPuzzle2048Fragment())
     }
     private val openHardMathObserver = Observer<Unit> {
-
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToQuickMathFragment())
     }
     private val openSupportObserver = Observer<Unit> {
 

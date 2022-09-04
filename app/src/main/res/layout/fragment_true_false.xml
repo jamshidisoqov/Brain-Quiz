@@ -7,45 +7,111 @@
     android:background="@color/bg_color"
     tools:context=".presentation.ui.true_false.screens.TrueFalseFragment">
 
-    <ImageView
-        android:id="@+id/img_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_timer"
+    <RelativeLayout
+        android:id="@+id/header_container"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Chronometer
-        android:id="@+id/title_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/img_time"
-        app:layout_constraintStart_toEndOf="@id/img_time"
-        app:layout_constraintTop_toTopOf="@id/img_time" />
+        <ImageView
+            android:id="@+id/image_time"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_timer" />
 
-    <TextView
-        android:id="@+id/question_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/img_time"
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/image_time"
+            android:textSize="18sp"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/tv_question_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:textSize="18sp"
+            tools:text="Question:10" />
+
+
+    </RelativeLayout>
+
+    <com.skydoves.progressview.ProgressView
+        android:id="@+id/progress_horizontal_true_false"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/img_time"
-        tools:text="1" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_container"
+        app:layout_constraintWidth_percent="0.9"
+        app:progressView_autoAnimate="true"
+        app:progressView_colorBackground="@color/main_color"
+        app:progressView_colorProgress="@color/progress_color"
+        app:progressView_labelColorInner="@color/white"
+        app:progressView_labelColorOuter="@color/black"
+        app:progressView_labelSpace="10dp"
+        app:progressView_labelText="Time"
+        app:progressView_labelTypeface="bold"
+        app:progressView_max="100"
+        app:progressView_padding="1dp"
+        app:progressView_progress="100"
+        app:progressView_progressFromPrevious="true"
+        app:progressView_radius="12dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_question_true_false"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="@string/question_title"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/question_number"
-        app:layout_constraintEnd_toStartOf="@id/question_number"
-        app:layout_constraintTop_toTopOf="@id/question_number" />
+        android:layout_marginHorizontal="24dp"
+        android:gravity="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tv_yes_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_horizontal_true_false"
+        tools:text="2+3=4" />
+
+    <TextView
+        android:id="@+id/tv_no_btn"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/bg_header"
+        android:gravity="center"
+        android:text="@string/no"
+        android:textColor="#EC2F21"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_yes_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <TextView
+        android:id="@+id/tv_yes_btn"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/bg_header"
+        android:gravity="center"
+        android:text="@string/yes"
+        android:textColor="#0BFA23"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_no_btn"
+        app:layout_constraintWidth_percent="0.4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

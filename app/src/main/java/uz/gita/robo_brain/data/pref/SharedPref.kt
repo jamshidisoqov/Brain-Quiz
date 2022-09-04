@@ -45,5 +45,21 @@ interface SharedPref {
 
     fun setBestResultSortedMath(result: Int)
 
+    //true false
+    fun getBestResultTrueFalse(): Int
+
+    fun setBestResultTrueFalse(result: Int)
+
+    //quick math
+    fun getBestResultQuickMath(): Int
+
+    fun setBestResultQuickMath(result: Int)
+
+    //table of grow
+
+    fun setBestResultTableOfGrow(result: Int)
+
+    fun getBestResultTableOfGrow():Int
+
 
 }

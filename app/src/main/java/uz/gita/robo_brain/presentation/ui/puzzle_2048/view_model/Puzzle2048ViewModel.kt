@@ -13,6 +13,8 @@ interface Puzzle2048ViewModel {
 
     val gameOver: LiveData<Unit>
 
+    val winnerLiveData:LiveData<Unit>
+
     val currentMatrix: LiveData<Array<Array<Int>>>
 
     fun move(movement: Movement)
