@@ -12,7 +12,7 @@ class SortedMathRepositoryImpl private constructor() : SortedMathRepository {
     override fun getQuestions(question: Int): List<SortedMath> {
         val list = ArrayList<SortedMath>()
         for (i in 0..4) {
-            list.add(generate(question / 5).toSortedMath())
+            list.add(generate(question).toSortedMath())
         }
         list.sortBy {
             it.answer

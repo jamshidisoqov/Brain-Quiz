@@ -13,7 +13,7 @@ class SortMathViewModelImpl : SortMathViewModel, ViewModel() {
 
     private val repository = SortedMathRepositoryImpl.getInstance()
 
-    override val questionCountLiveData: MutableLiveData<Int> = MutableLiveData(0)
+    override val questionCountLiveData: MutableLiveData<Int> = MutableLiveData(1)
 
     override val musicLiveData: MutableLiveData<Boolean> = MutableLiveData(repository.getMusic())
 
@@ -57,7 +57,7 @@ class SortMathViewModelImpl : SortMathViewModel, ViewModel() {
     }
 
     override fun nextQuestion() {
-        questionLiveData.postValue(repository.getQuestions(if (questionCountLiveData.value == null) 1 else questionCountLiveData.value!!))
+        questionLiveData.postValue(repository.getQuestions(questionCountLiveData.value?:1))
         questionCountLiveData.value = questionCountLiveData.value!! + 1
     }
 }
