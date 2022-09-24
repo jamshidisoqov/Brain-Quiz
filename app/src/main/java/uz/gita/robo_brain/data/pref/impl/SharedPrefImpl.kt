@@ -118,7 +118,7 @@ class SharedPrefImpl private constructor(ctx: Context) : SharedPref {
     override fun getBestResultInputMath(): Int =
         sharedPref.getInt(BEST_RESULT_INPUT_MATH, 1)
 
-    override fun getName(): String = sharedPref.getString(NAME, "Youre Name").toString()
+    override fun getName(): String = sharedPref.getString(NAME, "").toString()
 
     override fun setName(name: String) {
         editor.putString(NAME, name)

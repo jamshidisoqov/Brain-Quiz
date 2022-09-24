@@ -80,7 +80,7 @@ class SortMathFragment : Fragment(R.layout.fragment_sort_math) {
 
 
     private val questionObserver = Observer<List<SortedMath>> {
-        adapter.submitList(it)
+        adapter.submitList(it.shuffled())
     }
 
     private val finishObserver = Observer<Int> {
