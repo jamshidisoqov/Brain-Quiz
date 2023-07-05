@@ -66,7 +66,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         Constants.shareApp(requireActivity() as MainActivity)
     }
     private val openAboutLiveData = Observer<Unit> {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
+        //findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
     }
 
 }
