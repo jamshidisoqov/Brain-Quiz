@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.splash.SplashFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.home.HomeFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.menu.MenuFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.menu.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -65,12 +65,12 @@
     </fragment>
     <fragment
         android:id="@+id/puzzle2048Fragment"
-        android:name="uz.gita.robo_brain.presentation.ui.puzzle_2048.screens.Puzzle2048Fragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.puzzle_2048.screens.Puzzle2048Fragment"
         android:label="fragment_puzzle2048"
         tools:layout="@layout/fragment_puzzle2048" />
     <fragment
         android:id="@+id/sortMathFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.sort_math.screens.SortMathFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.sort_math.screens.SortMathFragment"
         android:label="fragment_sort_math"
         tools:layout="@layout/fragment_sort_math" >
         <action
@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/trueFalseFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.true_false.screens.TrueFalseFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.true_false.screens.TrueFalseFragment"
         android:label="fragment_true_false"
         tools:layout="@layout/fragment_true_false" >
         <action
@@ -92,7 +92,7 @@
     </fragment>
     <fragment
         android:id="@+id/numberPuzzleFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.puzzle_15.screens.NumberPuzzleFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.puzzle_15.screens.NumberPuzzleFragment"
         android:label="fragment_number_puzzle"
         tools:layout="@layout/fragment_number_puzzle" >
         <action
@@ -103,12 +103,12 @@
     </fragment>
     <fragment
         android:id="@+id/puzzle15ResultFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.puzzle_15.screens.result.Puzzle15ResultFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.puzzle_15.screens.result.Puzzle15ResultFragment"
         android:label="fragment_puzzle15_result"
         tools:layout="@layout/fragment_puzzle15_result" >
         <argument
             android:name="statistics"
-            app:argType="uz.gita.robo_brain.data.models.StatisticsByPuzzle15" />
+            app:argType="uz.uni_team.robo_brain.data.models.StatisticsByPuzzle15" />
         <action
             android:id="@+id/action_puzzle15ResultFragment_to_numberPuzzleFragment"
             app:destination="@id/numberPuzzleFragment"
@@ -117,7 +117,7 @@
     </fragment>
     <fragment
         android:id="@+id/sortedMathResultFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.sort_math.screens.result.SortedMathResultFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.sort_math.screens.result.SortedMathResultFragment"
         android:label="fragment_sorted_math_result"
         tools:layout="@layout/fragment_sorted_math_result" >
         <action
@@ -132,7 +132,7 @@
     </fragment>
     <fragment
         android:id="@+id/trueFalseResultFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.true_false.screens.result.TrueFalseResultFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.true_false.screens.result.TrueFalseResultFragment"
         android:label="fragment_true_false_result"
         tools:layout="@layout/fragment_true_false_result" >
         <action
@@ -147,7 +147,7 @@
     </fragment>
     <fragment
         android:id="@+id/quickMathFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.quick_math.screens.QuickMathFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.quick_math.screens.QuickMathFragment"
         android:label="fragment_quick_math"
         tools:layout="@layout/fragment_quick_math" >
         <action
@@ -158,7 +158,7 @@
     </fragment>
     <fragment
         android:id="@+id/quickMathResultFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.quick_math.screens.result.QuickMathResultFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.quick_math.screens.result.QuickMathResultFragment"
         android:label="fragment_quick_math_result"
         tools:layout="@layout/fragment_quick_math_result" >
         <action
@@ -173,12 +173,12 @@
     </fragment>
     <fragment
         android:id="@+id/growTableFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.grow_table.screens.GrowTableFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.grow_table.screens.GrowTableFragment"
         android:label="fragment_grow_table"
         tools:layout="@layout/fragment_grow_table" />
     <fragment
         android:id="@+id/inputMathFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.input_math.screens.InputMathFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.input_math.screens.InputMathFragment"
         android:label="fragment_input_math"
         tools:layout="@layout/fragment_input_math" >
         <action
@@ -189,7 +189,7 @@
     </fragment>
     <fragment
         android:id="@+id/inputMathResultFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.input_math.screens.result.InputMathResultFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.input_math.screens.result.InputMathResultFragment"
         android:label="fragment_input_math_result"
         tools:layout="@layout/fragment_input_math_result" >
         <action
@@ -204,17 +204,17 @@
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.help.HelpFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.help.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.about.AboutFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.about.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="uz.gita.robo_brain.presentation.ui.settings.SettingsFragment"
+        android:name="uz.uni_team.robo_brain.presentation.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>
