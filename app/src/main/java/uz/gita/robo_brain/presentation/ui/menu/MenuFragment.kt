@@ -109,7 +109,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         dialog.show(childFragmentManager, "dialog")
     }
     private val helpObserver = Observer<Unit> {
-        //findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHelpFragment())
+        findNavController().navigate(MenuFragmentDirections.actionMenuFragmentToHelpFragment())
     }
 
     private val imageObserver = Observer<String> {
